@@ -26,14 +26,8 @@ const navItems = [
   <body class="bg-slate-950 text-slate-100 antialiased">
     <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
       <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <a href="#topo" class="flex items-center gap-3 text-lg font-semibold tracking-wide text-white">
-          <img
-            src="https://placehold.co/96x96/png"
-            alt="Foto de perfil"
-            class="h-10 w-10 rounded-full border border-white/60 object-cover sm:h-12 sm:w-12"
-            loading="lazy"
-          />
-          <span data-i18n="brand.name">Luca Guiraldello</span>
+        <a href="#topo" class="text-lg font-semibold tracking-wide text-white" data-i18n="brand.name">
+          Dev Fullstack
         </a>
         <button
           id="menu-toggle"
@@ -134,7 +128,7 @@ const navItems = [
               <ul class="space-y-3 text-sm text-slate-200">
                 <li data-i18n="summary.item1">+8 anos entregando APIs REST, gRPC e mensageria em .NET.</li>
                 <li data-i18n="summary.item2">
-                  Experiência com AWS (RDS, SQS, ECS, EKS), CI/CD e infraestrutura como código.
+                  Experiência com cloud Azure, CI/CD e infraestrutura como código.
                 </li>
                 <li data-i18n="summary.item3">Integrações com ERPs, gateways de pagamento e sistemas legados.</li>
                 <li data-i18n="summary.item4">Mentoria de equipes e definição de padrões de arquitetura.</li>
@@ -320,10 +314,10 @@ const navItems = [
           {[
             { key: "skills.item1", label: "C#, .NET 8 e ASP.NET Core" },
             { key: "skills.item2", label: "Arquitetura limpa, DDD e CQRS" },
-            { key: "skills.item3", label: "Mensageria com RabbitMQ e AWS SQS" },
+            { key: "skills.item3", label: "Mensageria com RabbitMQ e Azure Service Bus" },
             { key: "skills.item4", label: "SQL Server, PostgreSQL e Redis" },
-            { key: "skills.item5", label: "Docker, Kubernetes (EKS) e IaC" },
-            { key: "skills.item6", label: "CI/CD com GitHub Actions e pipelines AWS" },
+            { key: "skills.item5", label: "Docker, Kubernetes e IaC" },
+            { key: "skills.item6", label: "CI/CD com GitHub Actions e Azure DevOps" },
           ].map((skill) => (
             <div
               class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200"
@@ -347,28 +341,26 @@ const navItems = [
         <div class="grid gap-6 lg:grid-cols-3">
           {[
             {
-              title: "Worker em tempo real",
+              title: "Plataforma de pagamentos",
               titleKey: "projects.item1.title",
               description:
-                "Processamento contínuo de alterações na estrutura comercial para democratizar dados e abastecer múltiplos produtos internos.",
+                "Processamento de transações com alta disponibilidade, antifraude e reconciliação automática.",
               descriptionKey: "projects.item1.description",
-              stack: ".NET 8.0 · Kafka · AWS · Postgres",
+              stack: "ASP.NET Core · Kafka · Azure SQL",
             },
             {
-              title: "Plataforma de Previsão de Demanda",
+              title: "Hub de integrações",
               titleKey: "projects.item2.title",
-              description:
-                "Planejamento com dados de vendas e ML, permitindo ajustar curvas estatísticas para otimizar produção, logística e vendas.",
+              description: "Conectores para ERPs e marketplaces com monitoramento de SLA em tempo real.",
               descriptionKey: "projects.item2.description",
-              stack: "Kotlin · RabbitMQ · Postgres · AWS · GCP",
+              stack: ".NET Worker · Redis · Event Grid",
             },
             {
-              title: "Cubiscan",
+              title: "Portal de parceiros",
               titleKey: "projects.item3.title",
-              description:
-                "Sistema com leitor Cubiscan para capturar códigos, dimensões e peso, enviando os dados ao SAP EWM para organização e otimização.",
+              description: "Experiência unificada para onboarding, documentação e dashboards de métricas.",
               descriptionKey: "projects.item3.description",
-              stack: "Python · AWS · SAP EWM",
+              stack: "React · BFF .NET · Azure AD",
             },
           ].map((project) => (
             <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
@@ -418,9 +410,9 @@ const navItems = [
           <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
             <h3 class="text-lg font-semibold text-white" data-i18n="references.contact.title">Contato</h3>
             <ul class="mt-4 space-y-3 text-sm text-slate-300">
-              <li data-i18n="references.contact.item1">Email: lucaguiraldello@hotmail.com</li>
-              <li data-i18n="references.contact.item2">LinkedIn: linkedin.com/in/luca-guiraldello</li>
-              <li data-i18n="references.contact.item3">GitHub: github.com/luca0898</li>
+              <li data-i18n="references.contact.item1">Email: contato@seudominio.com</li>
+              <li data-i18n="references.contact.item2">LinkedIn: linkedin.com/in/seunome</li>
+              <li data-i18n="references.contact.item3">GitHub: github.com/seunome</li>
             </ul>
           </article>
         </div>
@@ -430,6 +422,7 @@ const navItems = [
     <footer class="border-t border-white/10 py-8">
       <div class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 text-xs text-slate-400 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
         <span data-i18n="footer.rights">© 2024 Dev Fullstack. Todos os direitos reservados.</span>
+        <span data-i18n="footer.stack">Feito com Astro e Tailwind CSS.</span>
       </div>
     </footer>
 
@@ -442,7 +435,7 @@ const navItems = [
 
       const translations = {
         pt: {
-          "brand.name": "Luca Guiraldello",
+          "brand.name": "Dev Fullstack",
           "nav.menu": "Menu",
           "nav.about": "Sobre",
           "nav.experience": "Experiências",
@@ -458,7 +451,7 @@ const navItems = [
           "hero.cta.contact": "Contato e referências",
           "summary.title": "Resumo rápido",
           "summary.item1": "+8 anos entregando APIs REST, gRPC e mensageria em .NET.",
-          "summary.item2": "Experiência com AWS (RDS, SQS, ECS, EKS), CI/CD e infraestrutura como código.",
+          "summary.item2": "Experiência com cloud Azure, CI/CD e infraestrutura como código.",
           "summary.item3": "Integrações com ERPs, gateways de pagamento e sistemas legados.",
           "summary.item4": "Mentoria de equipes e definição de padrões de arquitetura.",
           "about.kicker": "Sobre",
@@ -513,21 +506,19 @@ const navItems = [
           "skills.title": "Stack principal",
           "skills.item1": "C#, .NET 8 e ASP.NET Core",
           "skills.item2": "Arquitetura limpa, DDD e CQRS",
-          "skills.item3": "Mensageria com RabbitMQ e AWS SQS",
+          "skills.item3": "Mensageria com RabbitMQ e Azure Service Bus",
           "skills.item4": "SQL Server, PostgreSQL e Redis",
-          "skills.item5": "Docker, Kubernetes (EKS) e IaC",
-          "skills.item6": "CI/CD com GitHub Actions e pipelines AWS",
+          "skills.item5": "Docker, Kubernetes e IaC",
+          "skills.item6": "CI/CD com GitHub Actions e Azure DevOps",
           "projects.kicker": "Projetos",
           "projects.title": "Cases de impacto",
-          "projects.item1.title": "Worker em tempo real",
+          "projects.item1.title": "Plataforma de pagamentos",
           "projects.item1.description":
-            "Processamento contínuo de alterações na estrutura comercial para democratizar dados e abastecer múltiplos produtos internos.",
-          "projects.item2.title": "Plataforma de Previsão de Demanda",
-          "projects.item2.description":
-            "Planejamento com dados de vendas e ML, permitindo ajustar curvas estatísticas para otimizar produção, logística e vendas.",
-          "projects.item3.title": "Cubiscan",
-          "projects.item3.description":
-            "Sistema com leitor Cubiscan para capturar códigos, dimensões e peso, enviando os dados ao SAP EWM para organização e otimização.",
+            "Processamento de transações com alta disponibilidade, antifraude e reconciliação automática.",
+          "projects.item2.title": "Hub de integrações",
+          "projects.item2.description": "Conectores para ERPs e marketplaces com monitoramento de SLA em tempo real.",
+          "projects.item3.title": "Portal de parceiros",
+          "projects.item3.description": "Experiência unificada para onboarding, documentação e dashboards de métricas.",
           "references.kicker": "Referências",
           "references.title": "Vamos conversar?",
           "references.available.title": "Disponível para",
@@ -535,15 +526,16 @@ const navItems = [
           "references.available.item2": "Consultoria em arquitetura e modernização de legado.",
           "references.available.item3": "Mentoria de times backend e squads fullstack.",
           "references.contact.title": "Contato",
-          "references.contact.item1": "Email: lucaguiraldello@hotmail.com",
-          "references.contact.item2": "LinkedIn: linkedin.com/in/luca-guiraldello",
-          "references.contact.item3": "GitHub: github.com/luca0898",
-          "footer.rights": "© 2024 Luca Guiraldello. Todos os direitos reservados.",
+          "references.contact.item1": "Email: contato@seudominio.com",
+          "references.contact.item2": "LinkedIn: linkedin.com/in/seunome",
+          "references.contact.item3": "GitHub: github.com/seunome",
+          "footer.rights": "© 2024 Dev Fullstack. Todos os direitos reservados.",
+          "footer.stack": "Feito com Astro e Tailwind CSS.",
           metaDescription: "Portfólio de desenvolvedor fullstack com foco em .NET e backend.",
           pageTitle: "Portfólio | Desenvolvedor Fullstack",
         },
         en: {
-          "brand.name": "Luca Guiraldello",
+          "brand.name": "Fullstack Dev",
           "nav.menu": "Menu",
           "nav.about": "About",
           "nav.experience": "Experience",
@@ -559,7 +551,7 @@ const navItems = [
           "hero.cta.contact": "Contact & references",
           "summary.title": "Quick summary",
           "summary.item1": "8+ years delivering REST APIs, gRPC, and messaging with .NET.",
-          "summary.item2": "Experience with AWS (RDS, SQS, ECS, EKS), CI/CD, and infrastructure as code.",
+          "summary.item2": "Experience with Azure cloud, CI/CD, and infrastructure as code.",
           "summary.item3": "Integrations with ERPs, payment gateways, and legacy systems.",
           "summary.item4": "Team mentoring and architecture standards definition.",
           "about.kicker": "About",
@@ -614,21 +606,19 @@ const navItems = [
           "skills.title": "Core stack",
           "skills.item1": "C#, .NET 8, and ASP.NET Core",
           "skills.item2": "Clean architecture, DDD, and CQRS",
-          "skills.item3": "Messaging with RabbitMQ and AWS SQS",
+          "skills.item3": "Messaging with RabbitMQ and Azure Service Bus",
           "skills.item4": "SQL Server, PostgreSQL, and Redis",
-          "skills.item5": "Docker, Kubernetes (EKS), and IaC",
-          "skills.item6": "CI/CD with GitHub Actions and AWS pipelines",
+          "skills.item5": "Docker, Kubernetes, and IaC",
+          "skills.item6": "CI/CD with GitHub Actions and Azure DevOps",
           "projects.kicker": "Projects",
           "projects.title": "Impact cases",
-          "projects.item1.title": "Real-time worker",
+          "projects.item1.title": "Payment platform",
           "projects.item1.description":
-            "Continuous processing of commercial structure changes to democratize data for multiple internal products.",
-          "projects.item2.title": "Demand Forecasting Platform",
-          "projects.item2.description":
-            "Planning with sales and ML data, allowing analysts to adjust statistical curves to optimize production, logistics, and sales.",
-          "projects.item3.title": "Cubiscan",
-          "projects.item3.description":
-            "Cubiscan reader system that captures barcode, dimensions, and weight data and sends it to SAP EWM for optimization.",
+            "Transaction processing with high availability, anti-fraud, and automated reconciliation.",
+          "projects.item2.title": "Integration hub",
+          "projects.item2.description": "Connectors for ERPs and marketplaces with real-time SLA monitoring.",
+          "projects.item3.title": "Partner portal",
+          "projects.item3.description": "Unified experience for onboarding, documentation, and metrics dashboards.",
           "references.kicker": "References",
           "references.title": "Let's talk?",
           "references.available.title": "Available for",
@@ -636,10 +626,11 @@ const navItems = [
           "references.available.item2": "Architecture consulting and legacy modernization.",
           "references.available.item3": "Backend team mentoring and fullstack squads.",
           "references.contact.title": "Contact",
-          "references.contact.item1": "Email: lucaguiraldello@hotmail.com",
-          "references.contact.item2": "LinkedIn: linkedin.com/in/luca-guiraldello",
-          "references.contact.item3": "GitHub: github.com/luca0898",
-          "footer.rights": "© 2024 Luca Guiraldello. All rights reserved.",
+          "references.contact.item1": "Email: contato@seudominio.com",
+          "references.contact.item2": "LinkedIn: linkedin.com/in/seunome",
+          "references.contact.item3": "GitHub: github.com/seunome",
+          "footer.rights": "© 2024 Fullstack Dev. All rights reserved.",
+          "footer.stack": "Built with Astro and Tailwind CSS.",
           metaDescription: "Fullstack developer portfolio focused on .NET and backend.",
           pageTitle: "Portfolio | Fullstack Developer",
         },
