@@ -168,29 +168,60 @@ const navItems = [
         </div>
         <div class="grid gap-6 lg:grid-cols-2">
           <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 class="text-lg font-semibold text-white" data-i18n="experience.role1.title">
-              Tech Lead · Plataforma Financeira
-            </h3>
-            <p class="text-sm text-slate-400" data-i18n="experience.role1.period">2022 — Atual</p>
+            <div class="space-y-1">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="experience.role1.company">
+                Zup Innovation
+              </p>
+              <h3 class="text-lg font-semibold text-white" data-i18n="experience.role1.title">
+                Full Stack Developer Senior
+              </h3>
+              <p class="text-sm text-slate-400" data-i18n="experience.role1.period">
+                abr de 2025 - o momento · 10 meses · Campinas · Remota
+              </p>
+              <p class="text-sm font-semibold text-slate-200" data-i18n="experience.role1.project">
+                Desenvolvedor de Software | Gestão de Leads - Investimentos (Itaú)
+              </p>
+            </div>
             <ul class="mt-4 space-y-2 text-sm text-slate-300">
               <li data-i18n="experience.role1.item1">
-                Arquitetura de microsserviços .NET com mensageria e eventos.
+                Experiência com arquitetura de microsserviços, sistemas distribuídos, EDA, REST APIs, filas e serviços backend de alta performance.
               </li>
               <li data-i18n="experience.role1.item2">
-                Observabilidade com OpenTelemetry, logs estruturados e alertas.
+                Foco em performance, escalabilidade, observabilidade, monitoramento, logging e padrões de resiliência.
               </li>
-              <li data-i18n="experience.role1.item3">Integrações com gateways e antifraude.</li>
+              <li data-i18n="experience.role1.item3">
+                Participação ativa em arquitetura, code reviews, decisões técnicas e melhoria contínua.
+              </li>
+              <li data-i18n="experience.role1.item4">
+                Desenvolvimento com .NET (C#, .NET 6/7/8, ASP.NET Core, Web API), PostgreSQL, AWS, Kafka, Docker, Terraform e CI/CD.
+              </li>
             </ul>
           </article>
           <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 class="text-lg font-semibold text-white" data-i18n="experience.role2.title">
-              Fullstack Developer · E-commerce B2B
-            </h3>
-            <p class="text-sm text-slate-400" data-i18n="experience.role2.period">2019 — 2022</p>
+            <div class="space-y-1">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="experience.role2.company">
+                Grupo Boticário
+              </p>
+              <h3 class="text-lg font-semibold text-white" data-i18n="experience.role2.title">
+                Full Stack Developer Senior
+              </h3>
+              <p class="text-sm text-slate-400" data-i18n="experience.role2.period">
+                ago de 2024 - fev de 2025 · 7 meses · Campinas, São Paulo, Brasil
+              </p>
+              <p class="text-sm font-semibold text-slate-200" data-i18n="experience.role2.project">
+                Plataforma de previsão de demanda
+              </p>
+            </div>
             <ul class="mt-4 space-y-2 text-sm text-slate-300">
-              <li data-i18n="experience.role2.item1">APIs REST em ASP.NET Core e front em React.</li>
-              <li data-i18n="experience.role2.item2">Automação de deploys e esteiras de testes.</li>
-              <li data-i18n="experience.role2.item3">Integração com ERPs e sistemas legados.</li>
+              <li data-i18n="experience.role2.item1">
+                Desenvolvimento de plataforma de planejamento com dados de previsão e ML para otimizar produção e vendas.
+              </li>
+              <li data-i18n="experience.role2.item2">
+                Kotlin e React para ajustes de curvas estatísticas conforme sazonalidade.
+              </li>
+              <li data-i18n="experience.role2.item3">
+                Stack: GCP BigQuery, Postgres, AWS, Kotlin (Spring), Node.js, React microfrontend e CI/CD.
+              </li>
             </ul>
           </article>
         </div>
@@ -207,22 +238,65 @@ const navItems = [
         </div>
         <div class="grid gap-6 lg:grid-cols-2">
           <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="education.item1.institution">
+              Universidade Cruzeiro do Sul
+            </p>
             <h3 class="text-lg font-semibold text-white" data-i18n="education.item1.title">
-              Bacharel em Sistemas de Informação
+              Bacharelado, Análise de Sistemas de Computação
             </h3>
-            <p class="text-sm text-slate-400" data-i18n="education.item1.period">2014 — 2018</p>
-            <p class="mt-3 text-sm text-slate-300" data-i18n="education.item1.description">
-              Ênfase em arquitetura de software, banco de dados e engenharia de requisitos.
+            <p class="text-sm text-slate-400" data-i18n="education.item1.period">jul de 2019 - jun de 2021</p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="education.item2.institution">
+              Centro Paula Souza ETEC João Belarmino
+            </p>
+            <h3 class="text-lg font-semibold text-white" data-i18n="education.item2.title">
+              Tecnólogo, Ensino Médio Integrado ao Técnico de Informática
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="education.item2.period">2013 - 2015</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="certificacoes" class="mt-16 scroll-mt-24 space-y-8">
+        <div class="space-y-2">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300" data-i18n="certifications.kicker">
+            Licenças e certificados
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="certifications.title">
+            Credenciais profissionais
+          </h2>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="certifications.item1.issuer">
+              Zup Innovation
+            </p>
+            <h3 class="text-lg font-semibold text-white" data-i18n="certifications.item1.title">
+              Stackspot BIT (Practitioner)
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="certifications.item1.period">Verificação emitida em jul de 2025</p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="certifications.item2.issuer">
+              Udemy
+            </p>
+            <h3 class="text-lg font-semibold text-white" data-i18n="certifications.item2.title">
+              The Complete Apache Kafka Practical Guide
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="certifications.item2.period">Verificação emitida em fev de 2023</p>
+            <p class="mt-2 text-xs text-slate-400" data-i18n="certifications.item2.code">
+              Código da credencial: UC-080a2452-ccd8-4edd-8178-de50b417c430
             </p>
           </article>
           <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 class="text-lg font-semibold text-white" data-i18n="education.item2.title">
-              Microsoft Azure Developer Associate
-            </h3>
-            <p class="text-sm text-slate-400" data-i18n="education.item2.period">Certificação · 2023</p>
-            <p class="mt-3 text-sm text-slate-300" data-i18n="education.item2.description">
-              Implementação de soluções cloud, serviços gerenciados e DevOps.
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="certifications.item3.issuer">
+              Zup Innovation
             </p>
+            <h3 class="text-lg font-semibold text-white" data-i18n="certifications.item3.title">
+              IA generativa
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="certifications.item3.period">Verificação emitida em jul de 2025</p>
           </article>
         </div>
       </section>
@@ -386,24 +460,48 @@ const navItems = [
             "Trabalho com foco em estabilidade, performance e escalabilidade. Tenho vivência em pipelines de integração contínua, code reviews e práticas de observabilidade para manter produtos saudáveis em produção. Gosto de traduzir necessidades de negócio em soluções técnicas sustentáveis.",
           "experience.kicker": "Experiências",
           "experience.title": "Histórico profissional",
-          "experience.role1.title": "Tech Lead · Plataforma Financeira",
-          "experience.role1.period": "2022 — Atual",
-          "experience.role1.item1": "Arquitetura de microsserviços .NET com mensageria e eventos.",
-          "experience.role1.item2": "Observabilidade com OpenTelemetry, logs estruturados e alertas.",
-          "experience.role1.item3": "Integrações com gateways e antifraude.",
-          "experience.role2.title": "Fullstack Developer · E-commerce B2B",
-          "experience.role2.period": "2019 — 2022",
-          "experience.role2.item1": "APIs REST em ASP.NET Core e front em React.",
-          "experience.role2.item2": "Automação de deploys e esteiras de testes.",
-          "experience.role2.item3": "Integração com ERPs e sistemas legados.",
+          "experience.role1.company": "Zup Innovation",
+          "experience.role1.title": "Full Stack Developer Senior",
+          "experience.role1.period": "abr de 2025 - o momento · 10 meses · Campinas · Remota",
+          "experience.role1.project": "Desenvolvedor de Software | Gestão de Leads - Investimentos (Itaú)",
+          "experience.role1.item1":
+            "Experiência com arquitetura de microsserviços, sistemas distribuídos, EDA, REST APIs, filas e serviços backend de alta performance.",
+          "experience.role1.item2":
+            "Foco em performance, escalabilidade, observabilidade, monitoramento, logging e padrões de resiliência.",
+          "experience.role1.item3":
+            "Participação ativa em arquitetura, code reviews, decisões técnicas e melhoria contínua.",
+          "experience.role1.item4":
+            "Desenvolvimento com .NET (C#, .NET 6/7/8, ASP.NET Core, Web API), PostgreSQL, AWS, Kafka, Docker, Terraform e CI/CD.",
+          "experience.role2.company": "Grupo Boticário",
+          "experience.role2.title": "Full Stack Developer Senior",
+          "experience.role2.period": "ago de 2024 - fev de 2025 · 7 meses · Campinas, São Paulo, Brasil",
+          "experience.role2.project": "Plataforma de previsão de demanda",
+          "experience.role2.item1":
+            "Desenvolvimento de plataforma de planejamento com dados de previsão e ML para otimizar produção e vendas.",
+          "experience.role2.item2":
+            "Kotlin e React para ajustes de curvas estatísticas conforme sazonalidade.",
+          "experience.role2.item3":
+            "Stack: GCP BigQuery, Postgres, AWS, Kotlin (Spring), Node.js, React microfrontend e CI/CD.",
           "education.kicker": "Formações",
-          "education.title": "Educação & certificações",
-          "education.item1.title": "Bacharel em Sistemas de Informação",
-          "education.item1.period": "2014 — 2018",
-          "education.item1.description": "Ênfase em arquitetura de software, banco de dados e engenharia de requisitos.",
-          "education.item2.title": "Microsoft Azure Developer Associate",
-          "education.item2.period": "Certificação · 2023",
-          "education.item2.description": "Implementação de soluções cloud, serviços gerenciados e DevOps.",
+          "education.title": "Formação acadêmica",
+          "education.item1.institution": "Universidade Cruzeiro do Sul",
+          "education.item1.title": "Bacharelado, Análise de Sistemas de Computação",
+          "education.item1.period": "jul de 2019 - jun de 2021",
+          "education.item2.institution": "Centro Paula Souza ETEC João Belarmino",
+          "education.item2.title": "Tecnólogo, Ensino Médio Integrado ao Técnico de Informática",
+          "education.item2.period": "2013 - 2015",
+          "certifications.kicker": "Licenças e certificados",
+          "certifications.title": "Credenciais profissionais",
+          "certifications.item1.issuer": "Zup Innovation",
+          "certifications.item1.title": "Stackspot BIT (Practitioner)",
+          "certifications.item1.period": "Verificação emitida em jul de 2025",
+          "certifications.item2.issuer": "Udemy",
+          "certifications.item2.title": "The Complete Apache Kafka Practical Guide",
+          "certifications.item2.period": "Verificação emitida em fev de 2023",
+          "certifications.item2.code": "Código da credencial: UC-080a2452-ccd8-4edd-8178-de50b417c430",
+          "certifications.item3.issuer": "Zup Innovation",
+          "certifications.item3.title": "IA generativa",
+          "certifications.item3.period": "Verificação emitida em jul de 2025",
           "skills.kicker": "Habilidades",
           "skills.title": "Stack principal",
           "skills.item1": "C#, .NET 8 e ASP.NET Core",
@@ -462,24 +560,48 @@ const navItems = [
             "I focus on stability, performance, and scalability. I have hands-on experience with CI pipelines, code reviews, and observability practices to keep production systems healthy. I enjoy translating business needs into sustainable technical solutions.",
           "experience.kicker": "Experience",
           "experience.title": "Professional history",
-          "experience.role1.title": "Tech Lead · Financial Platform",
-          "experience.role1.period": "2022 — Present",
-          "experience.role1.item1": ".NET microservices architecture with messaging and events.",
-          "experience.role1.item2": "Observability with OpenTelemetry, structured logs, and alerts.",
-          "experience.role1.item3": "Integrations with gateways and anti-fraud systems.",
-          "experience.role2.title": "Fullstack Developer · B2B E-commerce",
-          "experience.role2.period": "2019 — 2022",
-          "experience.role2.item1": "REST APIs in ASP.NET Core with React front-end.",
-          "experience.role2.item2": "Deployment automation and testing pipelines.",
-          "experience.role2.item3": "ERP and legacy system integrations.",
+          "experience.role1.company": "Zup Innovation",
+          "experience.role1.title": "Senior Full Stack Developer",
+          "experience.role1.period": "Apr 2025 - Present · 10 months · Campinas · Remote",
+          "experience.role1.project": "Software Developer | Lead Management - Investments (Itaú)",
+          "experience.role1.item1":
+            "Experience with microservices architecture, distributed systems, EDA, REST APIs, message queues, and high-performance backend services.",
+          "experience.role1.item2":
+            "Focus on performance, scalability, observability, monitoring, logging, and resilience patterns.",
+          "experience.role1.item3":
+            "Active participation in architecture discussions, code reviews, technical decisions, and continuous improvement.",
+          "experience.role1.item4":
+            "Backend development with .NET (C#, .NET 6/7/8, ASP.NET Core, Web API), PostgreSQL, AWS, Kafka, Docker, Terraform, and CI/CD.",
+          "experience.role2.company": "Grupo Boticário",
+          "experience.role2.title": "Senior Full Stack Developer",
+          "experience.role2.period": "Aug 2024 - Feb 2025 · 7 months · Campinas, São Paulo, Brazil",
+          "experience.role2.project": "Demand forecasting platform",
+          "experience.role2.item1":
+            "Built a planning platform using forecast and ML data to optimize production and sales.",
+          "experience.role2.item2":
+            "Kotlin and React to adjust statistical curves according to seasonal demand.",
+          "experience.role2.item3":
+            "Stack: GCP BigQuery, Postgres, AWS, Kotlin (Spring), Node.js, React microfrontends, and CI/CD.",
           "education.kicker": "Education",
-          "education.title": "Education & certifications",
-          "education.item1.title": "Bachelor in Information Systems",
-          "education.item1.period": "2014 — 2018",
-          "education.item1.description": "Focus on software architecture, databases, and requirements engineering.",
-          "education.item2.title": "Microsoft Azure Developer Associate",
-          "education.item2.period": "Certification · 2023",
-          "education.item2.description": "Cloud solutions implementation, managed services, and DevOps.",
+          "education.title": "Academic background",
+          "education.item1.institution": "Universidade Cruzeiro do Sul",
+          "education.item1.title": "Bachelor's in Computer Systems Analysis",
+          "education.item1.period": "Jul 2019 - Jun 2021",
+          "education.item2.institution": "Centro Paula Souza ETEC João Belarmino",
+          "education.item2.title": "Technical High School in IT",
+          "education.item2.period": "2013 - 2015",
+          "certifications.kicker": "Licenses & certifications",
+          "certifications.title": "Professional credentials",
+          "certifications.item1.issuer": "Zup Innovation",
+          "certifications.item1.title": "Stackspot BIT (Practitioner)",
+          "certifications.item1.period": "Verified Jul 2025",
+          "certifications.item2.issuer": "Udemy",
+          "certifications.item2.title": "The Complete Apache Kafka Practical Guide",
+          "certifications.item2.period": "Verified Feb 2023",
+          "certifications.item2.code": "Credential ID: UC-080a2452-ccd8-4edd-8178-de50b417c430",
+          "certifications.item3.issuer": "Zup Innovation",
+          "certifications.item3.title": "Generative AI",
+          "certifications.item3.period": "Verified Jul 2025",
           "skills.kicker": "Skills",
           "skills.title": "Core stack",
           "skills.item1": "C#, .NET 8, and ASP.NET Core",
