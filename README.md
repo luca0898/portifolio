@@ -10,9 +10,10 @@ This portfolio was intentionally built as a **static site** to keep the stack le
 - **Rapid delivery:** the entire portfolio was assembled in a few hours, validating the choice to keep the stack lightweight.
 
 ## Main Tools
-- **Astro** (static site framework)
-- **Tailwind CSS** (utility-first styling)
-- **TypeScript** (type-safe development)
+![Astro](https://img.shields.io/badge/Astro-FF5D01?style=for-the-badge&logo=astro&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![OpenAI Codex](https://img.shields.io/badge/OpenAI_Codex-412991?style=for-the-badge&logo=openai&logoColor=white)
 
 ## Local Development
 ```bash
