@@ -2,12 +2,12 @@
 import "../styles/global.css";
 
 const navItems = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#experiencias", label: "Experiências" },
-  { href: "#formacoes", label: "Formações" },
-  { href: "#habilidades", label: "Habilidades" },
-  { href: "#projetos", label: "Projetos" },
-  { href: "#referencias", label: "Referências" },
+  { href: "#sobre", key: "nav.about", label: "Sobre" },
+  { href: "#experiencias", key: "nav.experience", label: "Experiências" },
+  { href: "#formacoes", key: "nav.education", label: "Formações" },
+  { href: "#habilidades", key: "nav.skills", label: "Habilidades" },
+  { href: "#projetos", key: "nav.projects", label: "Projetos" },
+  { href: "#referencias", key: "nav.references", label: "Referências" },
 ];
 ---
 
@@ -16,13 +16,17 @@ const navItems = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Portfólio de desenvolvedor fullstack com foco em .NET e backend." />
+    <meta
+      id="meta-description"
+      name="description"
+      content="Portfólio de desenvolvedor fullstack com foco em .NET e backend."
+    />
     <title>Portfólio | Desenvolvedor Fullstack</title>
   </head>
   <body class="bg-slate-950 text-slate-100 antialiased">
     <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
       <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <a href="#topo" class="text-lg font-semibold tracking-wide text-white">
+        <a href="#topo" class="text-lg font-semibold tracking-wide text-white" data-i18n="brand.name">
           Dev Fullstack
         </a>
         <button
@@ -32,14 +36,22 @@ const navItems = [
           aria-expanded="false"
           type="button"
         >
-          <span>Menu</span>
+          <span data-i18n="nav.menu">Menu</span>
           <span class="text-base">☰</span>
+        </button>
+        <button
+          id="lang-toggle"
+          class="hidden items-center rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:border-white/30 hover:bg-white/10 sm:inline-flex"
+          type="button"
+          aria-label="Alternar idioma"
+        >
+          PT
         </button>
         <nav class="hidden md:block" aria-label="Navegação principal">
           <ul class="flex items-center gap-6 text-sm font-medium text-slate-200">
             {navItems.map((item) => (
               <li>
-                <a class="transition hover:text-white" href={item.href}>
+                <a class="transition hover:text-white" href={item.href} data-i18n={item.key}>
                   {item.label}
                 </a>
               </li>
@@ -52,12 +64,24 @@ const navItems = [
           <ul class="flex flex-col gap-3 text-sm font-medium text-slate-200">
             {navItems.map((item) => (
               <li>
-                <a class="block rounded-lg px-3 py-2 transition hover:bg-white/10 hover:text-white" href={item.href}>
+                <a
+                  class="block rounded-lg px-3 py-2 transition hover:bg-white/10 hover:text-white"
+                  href={item.href}
+                  data-i18n={item.key}
+                >
                   {item.label}
                 </a>
               </li>
             ))}
           </ul>
+          <button
+            id="lang-toggle-mobile"
+            class="mt-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:border-white/30 hover:bg-white/10"
+            type="button"
+            aria-label="Alternar idioma"
+          >
+            PT
+          </button>
         </nav>
       </div>
     </header>
@@ -65,25 +89,33 @@ const navItems = [
     <main id="topo" class="mx-auto w-full max-w-6xl px-4 pb-16 pt-12 sm:px-6 lg:pb-24">
       <section class="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-12">
         <div class="flex-1 space-y-6">
-          <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Desenvolvedor Fullstack</p>
+          <p class="text-sm uppercase tracking-[0.3em] text-slate-400" data-i18n="hero.kicker">
+            Desenvolvedor Fullstack
+          </p>
           <h1 class="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
-            Construindo soluções escaláveis em .NET, APIs e arquiteturas orientadas a domínio.
+            <span data-i18n="hero.title">
+              Construindo soluções escaláveis em .NET, APIs e arquiteturas orientadas a domínio.
+            </span>
           </h1>
           <p class="max-w-2xl text-base text-slate-300 sm:text-lg">
-            Sou um desenvolvedor fullstack com foco em backend e ecossistema Microsoft. Ajudo times a entregar
-            produtos robustos, com integrações confiáveis, testes automatizados e observabilidade desde o
-            primeiro deploy.
+            <span data-i18n="hero.description">
+              Sou um desenvolvedor fullstack com foco em backend e ecossistema Microsoft. Ajudo times a entregar
+              produtos robustos, com integrações confiáveis, testes automatizados e observabilidade desde o
+              primeiro deploy.
+            </span>
           </p>
           <div class="flex flex-wrap gap-3">
             <a
               href="#projetos"
               class="rounded-full bg-emerald-400 px-5 py-2 text-sm font-semibold text-emerald-950 transition hover:bg-emerald-300"
+              data-i18n="hero.cta.projects"
             >
               Ver projetos
             </a>
             <a
               href="#referencias"
               class="rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/40"
+              data-i18n="hero.cta.contact"
             >
               Contato e referências
             </a>
@@ -92,12 +124,14 @@ const navItems = [
         <div class="flex-1">
           <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/40 p-6 shadow-xl">
             <div class="space-y-4">
-              <p class="text-sm font-semibold text-emerald-300">Resumo rápido</p>
+              <p class="text-sm font-semibold text-emerald-300" data-i18n="summary.title">Resumo rápido</p>
               <ul class="space-y-3 text-sm text-slate-200">
-                <li>+8 anos entregando APIs REST, gRPC e mensageria em .NET.</li>
-                <li>Experiência com cloud Azure, CI/CD e infraestrutura como código.</li>
-                <li>Integrações com ERPs, gateways de pagamento e sistemas legados.</li>
-                <li>Mentoria de equipes e definição de padrões de arquitetura.</li>
+                <li data-i18n="summary.item1">+8 anos entregando APIs REST, gRPC e mensageria em .NET.</li>
+                <li data-i18n="summary.item2">
+                  Experiência com cloud Azure, CI/CD e infraestrutura como código.
+                </li>
+                <li data-i18n="summary.item3">Integrações com ERPs, gateways de pagamento e sistemas legados.</li>
+                <li data-i18n="summary.item4">Mentoria de equipes e definição de padrões de arquitetura.</li>
               </ul>
             </div>
           </div>
@@ -106,10 +140,14 @@ const navItems = [
 
       <section id="sobre" class="mt-16 scroll-mt-24 space-y-6">
         <div class="space-y-2">
-          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">Sobre</p>
-          <h2 class="text-2xl font-semibold text-white sm:text-3xl">Paixão por backend confiável</h2>
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300" data-i18n="about.kicker">
+            Sobre
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="about.title">
+            Paixão por backend confiável
+          </h2>
         </div>
-        <p class="text-base text-slate-300 sm:text-lg">
+        <p class="text-base text-slate-300 sm:text-lg" data-i18n="about.description">
           Trabalho com foco em estabilidade, performance e escalabilidade. Tenho vivência em pipelines de
           integração contínua, code reviews e práticas de observabilidade para manter produtos saudáveis em
           produção. Gosto de traduzir necessidades de negócio em soluções técnicas sustentáveis.
@@ -118,26 +156,41 @@ const navItems = [
 
       <section id="experiencias" class="mt-16 scroll-mt-24 space-y-8">
         <div class="space-y-2">
-          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">Experiências</p>
-          <h2 class="text-2xl font-semibold text-white sm:text-3xl">Histórico profissional</h2>
+          <p
+            class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300"
+            data-i18n="experience.kicker"
+          >
+            Experiências
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="experience.title">
+            Histórico profissional
+          </h2>
         </div>
         <div class="grid gap-6 lg:grid-cols-2">
           <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 class="text-lg font-semibold text-white">Tech Lead · Plataforma Financeira</h3>
-            <p class="text-sm text-slate-400">2022 — Atual</p>
+            <h3 class="text-lg font-semibold text-white" data-i18n="experience.role1.title">
+              Tech Lead · Plataforma Financeira
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="experience.role1.period">2022 — Atual</p>
             <ul class="mt-4 space-y-2 text-sm text-slate-300">
-              <li>Arquitetura de microsserviços .NET com mensageria e eventos.</li>
-              <li>Observabilidade com OpenTelemetry, logs estruturados e alertas.</li>
-              <li>Integrações com gateways e antifraude.</li>
+              <li data-i18n="experience.role1.item1">
+                Arquitetura de microsserviços .NET com mensageria e eventos.
+              </li>
+              <li data-i18n="experience.role1.item2">
+                Observabilidade com OpenTelemetry, logs estruturados e alertas.
+              </li>
+              <li data-i18n="experience.role1.item3">Integrações com gateways e antifraude.</li>
             </ul>
           </article>
           <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 class="text-lg font-semibold text-white">Fullstack Developer · E-commerce B2B</h3>
-            <p class="text-sm text-slate-400">2019 — 2022</p>
+            <h3 class="text-lg font-semibold text-white" data-i18n="experience.role2.title">
+              Fullstack Developer · E-commerce B2B
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="experience.role2.period">2019 — 2022</p>
             <ul class="mt-4 space-y-2 text-sm text-slate-300">
-              <li>APIs REST em ASP.NET Core e front em React.</li>
-              <li>Automação de deploys e esteiras de testes.</li>
-              <li>Integração com ERPs e sistemas legados.</li>
+              <li data-i18n="experience.role2.item1">APIs REST em ASP.NET Core e front em React.</li>
+              <li data-i18n="experience.role2.item2">Automação de deploys e esteiras de testes.</li>
+              <li data-i18n="experience.role2.item3">Integração com ERPs e sistemas legados.</li>
             </ul>
           </article>
         </div>
@@ -145,21 +198,29 @@ const navItems = [
 
       <section id="formacoes" class="mt-16 scroll-mt-24 space-y-8">
         <div class="space-y-2">
-          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">Formações</p>
-          <h2 class="text-2xl font-semibold text-white sm:text-3xl">Educação & certificações</h2>
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300" data-i18n="education.kicker">
+            Formações
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="education.title">
+            Educação & certificações
+          </h2>
         </div>
         <div class="grid gap-6 lg:grid-cols-2">
           <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 class="text-lg font-semibold text-white">Bacharel em Sistemas de Informação</h3>
-            <p class="text-sm text-slate-400">2014 — 2018</p>
-            <p class="mt-3 text-sm text-slate-300">
+            <h3 class="text-lg font-semibold text-white" data-i18n="education.item1.title">
+              Bacharel em Sistemas de Informação
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="education.item1.period">2014 — 2018</p>
+            <p class="mt-3 text-sm text-slate-300" data-i18n="education.item1.description">
               Ênfase em arquitetura de software, banco de dados e engenharia de requisitos.
             </p>
           </article>
           <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 class="text-lg font-semibold text-white">Microsoft Azure Developer Associate</h3>
-            <p class="text-sm text-slate-400">Certificação · 2023</p>
-            <p class="mt-3 text-sm text-slate-300">
+            <h3 class="text-lg font-semibold text-white" data-i18n="education.item2.title">
+              Microsoft Azure Developer Associate
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="education.item2.period">Certificação · 2023</p>
+            <p class="mt-3 text-sm text-slate-300" data-i18n="education.item2.description">
               Implementação de soluções cloud, serviços gerenciados e DevOps.
             </p>
           </article>
@@ -168,20 +229,27 @@ const navItems = [
 
       <section id="habilidades" class="mt-16 scroll-mt-24 space-y-8">
         <div class="space-y-2">
-          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">Habilidades</p>
-          <h2 class="text-2xl font-semibold text-white sm:text-3xl">Stack principal</h2>
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300" data-i18n="skills.kicker">
+            Habilidades
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="skills.title">
+            Stack principal
+          </h2>
         </div>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            "C#, .NET 8 e ASP.NET Core",
-            "Arquitetura limpa, DDD e CQRS",
-            "Mensageria com RabbitMQ e Azure Service Bus",
-            "SQL Server, PostgreSQL e Redis",
-            "Docker, Kubernetes e IaC",
-            "CI/CD com GitHub Actions e Azure DevOps",
+            { key: "skills.item1", label: "C#, .NET 8 e ASP.NET Core" },
+            { key: "skills.item2", label: "Arquitetura limpa, DDD e CQRS" },
+            { key: "skills.item3", label: "Mensageria com RabbitMQ e Azure Service Bus" },
+            { key: "skills.item4", label: "SQL Server, PostgreSQL e Redis" },
+            { key: "skills.item5", label: "Docker, Kubernetes e IaC" },
+            { key: "skills.item6", label: "CI/CD com GitHub Actions e Azure DevOps" },
           ].map((skill) => (
-            <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200">
-              {skill}
+            <div
+              class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200"
+              data-i18n={skill.key}
+            >
+              {skill.label}
             </div>
           ))}
         </div>
@@ -189,33 +257,45 @@ const navItems = [
 
       <section id="projetos" class="mt-16 scroll-mt-24 space-y-8">
         <div class="space-y-2">
-          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">Projetos</p>
-          <h2 class="text-2xl font-semibold text-white sm:text-3xl">Cases de impacto</h2>
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300" data-i18n="projects.kicker">
+            Projetos
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="projects.title">
+            Cases de impacto
+          </h2>
         </div>
         <div class="grid gap-6 lg:grid-cols-3">
           {[
             {
               title: "Plataforma de pagamentos",
+              titleKey: "projects.item1.title",
               description:
                 "Processamento de transações com alta disponibilidade, antifraude e reconciliação automática.",
+              descriptionKey: "projects.item1.description",
               stack: "ASP.NET Core · Kafka · Azure SQL",
             },
             {
               title: "Hub de integrações",
-              description:
-                "Conectores para ERPs e marketplaces com monitoramento de SLA em tempo real.",
+              titleKey: "projects.item2.title",
+              description: "Conectores para ERPs e marketplaces com monitoramento de SLA em tempo real.",
+              descriptionKey: "projects.item2.description",
               stack: ".NET Worker · Redis · Event Grid",
             },
             {
               title: "Portal de parceiros",
-              description:
-                "Experiência unificada para onboarding, documentação e dashboards de métricas.",
+              titleKey: "projects.item3.title",
+              description: "Experiência unificada para onboarding, documentação e dashboards de métricas.",
+              descriptionKey: "projects.item3.description",
               stack: "React · BFF .NET · Azure AD",
             },
           ].map((project) => (
             <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <h3 class="text-lg font-semibold text-white">{project.title}</h3>
-              <p class="mt-3 text-sm text-slate-300">{project.description}</p>
+              <h3 class="text-lg font-semibold text-white" data-i18n={project.titleKey}>
+                {project.title}
+              </h3>
+              <p class="mt-3 text-sm text-slate-300" data-i18n={project.descriptionKey}>
+                {project.description}
+              </p>
               <p class="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200">
                 {project.stack}
               </p>
@@ -226,24 +306,39 @@ const navItems = [
 
       <section id="referencias" class="mt-16 scroll-mt-24 space-y-8">
         <div class="space-y-2">
-          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300">Referências</p>
-          <h2 class="text-2xl font-semibold text-white sm:text-3xl">Vamos conversar?</h2>
+          <p
+            class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300"
+            data-i18n="references.kicker"
+          >
+            Referências
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="references.title">
+            Vamos conversar?
+          </h2>
         </div>
         <div class="grid gap-6 lg:grid-cols-2">
           <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 class="text-lg font-semibold text-white">Disponível para</h3>
+            <h3 class="text-lg font-semibold text-white" data-i18n="references.available.title">
+              Disponível para
+            </h3>
             <ul class="mt-4 space-y-2 text-sm text-slate-300">
-              <li>Projetos com foco em APIs, integrações e sistemas críticos.</li>
-              <li>Consultoria em arquitetura e modernização de legado.</li>
-              <li>Mentoria de times backend e squads fullstack.</li>
+              <li data-i18n="references.available.item1">
+                Projetos com foco em APIs, integrações e sistemas críticos.
+              </li>
+              <li data-i18n="references.available.item2">
+                Consultoria em arquitetura e modernização de legado.
+              </li>
+              <li data-i18n="references.available.item3">
+                Mentoria de times backend e squads fullstack.
+              </li>
             </ul>
           </article>
           <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 class="text-lg font-semibold text-white">Contato</h3>
+            <h3 class="text-lg font-semibold text-white" data-i18n="references.contact.title">Contato</h3>
             <ul class="mt-4 space-y-3 text-sm text-slate-300">
-              <li>Email: contato@seudominio.com</li>
-              <li>LinkedIn: linkedin.com/in/seunome</li>
-              <li>GitHub: github.com/seunome</li>
+              <li data-i18n="references.contact.item1">Email: contato@seudominio.com</li>
+              <li data-i18n="references.contact.item2">LinkedIn: linkedin.com/in/seunome</li>
+              <li data-i18n="references.contact.item3">GitHub: github.com/seunome</li>
             </ul>
           </article>
         </div>
@@ -252,14 +347,209 @@ const navItems = [
 
     <footer class="border-t border-white/10 py-8">
       <div class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 text-xs text-slate-400 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
-        <span>© 2024 Dev Fullstack. Todos os direitos reservados.</span>
-        <span>Feito com Astro e Tailwind CSS.</span>
+        <span data-i18n="footer.rights">© 2024 Dev Fullstack. Todos os direitos reservados.</span>
+        <span data-i18n="footer.stack">Feito com Astro e Tailwind CSS.</span>
       </div>
     </footer>
 
     <script>
       const toggle = document.getElementById("menu-toggle");
       const menu = document.getElementById("mobile-menu");
+      const langToggle = document.getElementById("lang-toggle");
+      const langToggleMobile = document.getElementById("lang-toggle-mobile");
+      const metaDescription = document.getElementById("meta-description");
+
+      const translations = {
+        pt: {
+          "brand.name": "Dev Fullstack",
+          "nav.menu": "Menu",
+          "nav.about": "Sobre",
+          "nav.experience": "Experiências",
+          "nav.education": "Formações",
+          "nav.skills": "Habilidades",
+          "nav.projects": "Projetos",
+          "nav.references": "Referências",
+          "hero.kicker": "Desenvolvedor Fullstack",
+          "hero.title": "Construindo soluções escaláveis em .NET, APIs e arquiteturas orientadas a domínio.",
+          "hero.description":
+            "Sou um desenvolvedor fullstack com foco em backend e ecossistema Microsoft. Ajudo times a entregar produtos robustos, com integrações confiáveis, testes automatizados e observabilidade desde o primeiro deploy.",
+          "hero.cta.projects": "Ver projetos",
+          "hero.cta.contact": "Contato e referências",
+          "summary.title": "Resumo rápido",
+          "summary.item1": "+8 anos entregando APIs REST, gRPC e mensageria em .NET.",
+          "summary.item2": "Experiência com cloud Azure, CI/CD e infraestrutura como código.",
+          "summary.item3": "Integrações com ERPs, gateways de pagamento e sistemas legados.",
+          "summary.item4": "Mentoria de equipes e definição de padrões de arquitetura.",
+          "about.kicker": "Sobre",
+          "about.title": "Paixão por backend confiável",
+          "about.description":
+            "Trabalho com foco em estabilidade, performance e escalabilidade. Tenho vivência em pipelines de integração contínua, code reviews e práticas de observabilidade para manter produtos saudáveis em produção. Gosto de traduzir necessidades de negócio em soluções técnicas sustentáveis.",
+          "experience.kicker": "Experiências",
+          "experience.title": "Histórico profissional",
+          "experience.role1.title": "Tech Lead · Plataforma Financeira",
+          "experience.role1.period": "2022 — Atual",
+          "experience.role1.item1": "Arquitetura de microsserviços .NET com mensageria e eventos.",
+          "experience.role1.item2": "Observabilidade com OpenTelemetry, logs estruturados e alertas.",
+          "experience.role1.item3": "Integrações com gateways e antifraude.",
+          "experience.role2.title": "Fullstack Developer · E-commerce B2B",
+          "experience.role2.period": "2019 — 2022",
+          "experience.role2.item1": "APIs REST em ASP.NET Core e front em React.",
+          "experience.role2.item2": "Automação de deploys e esteiras de testes.",
+          "experience.role2.item3": "Integração com ERPs e sistemas legados.",
+          "education.kicker": "Formações",
+          "education.title": "Educação & certificações",
+          "education.item1.title": "Bacharel em Sistemas de Informação",
+          "education.item1.period": "2014 — 2018",
+          "education.item1.description": "Ênfase em arquitetura de software, banco de dados e engenharia de requisitos.",
+          "education.item2.title": "Microsoft Azure Developer Associate",
+          "education.item2.period": "Certificação · 2023",
+          "education.item2.description": "Implementação de soluções cloud, serviços gerenciados e DevOps.",
+          "skills.kicker": "Habilidades",
+          "skills.title": "Stack principal",
+          "skills.item1": "C#, .NET 8 e ASP.NET Core",
+          "skills.item2": "Arquitetura limpa, DDD e CQRS",
+          "skills.item3": "Mensageria com RabbitMQ e Azure Service Bus",
+          "skills.item4": "SQL Server, PostgreSQL e Redis",
+          "skills.item5": "Docker, Kubernetes e IaC",
+          "skills.item6": "CI/CD com GitHub Actions e Azure DevOps",
+          "projects.kicker": "Projetos",
+          "projects.title": "Cases de impacto",
+          "projects.item1.title": "Plataforma de pagamentos",
+          "projects.item1.description":
+            "Processamento de transações com alta disponibilidade, antifraude e reconciliação automática.",
+          "projects.item2.title": "Hub de integrações",
+          "projects.item2.description": "Conectores para ERPs e marketplaces com monitoramento de SLA em tempo real.",
+          "projects.item3.title": "Portal de parceiros",
+          "projects.item3.description": "Experiência unificada para onboarding, documentação e dashboards de métricas.",
+          "references.kicker": "Referências",
+          "references.title": "Vamos conversar?",
+          "references.available.title": "Disponível para",
+          "references.available.item1": "Projetos com foco em APIs, integrações e sistemas críticos.",
+          "references.available.item2": "Consultoria em arquitetura e modernização de legado.",
+          "references.available.item3": "Mentoria de times backend e squads fullstack.",
+          "references.contact.title": "Contato",
+          "references.contact.item1": "Email: contato@seudominio.com",
+          "references.contact.item2": "LinkedIn: linkedin.com/in/seunome",
+          "references.contact.item3": "GitHub: github.com/seunome",
+          "footer.rights": "© 2024 Dev Fullstack. Todos os direitos reservados.",
+          "footer.stack": "Feito com Astro e Tailwind CSS.",
+          metaDescription: "Portfólio de desenvolvedor fullstack com foco em .NET e backend.",
+          pageTitle: "Portfólio | Desenvolvedor Fullstack",
+        },
+        en: {
+          "brand.name": "Fullstack Dev",
+          "nav.menu": "Menu",
+          "nav.about": "About",
+          "nav.experience": "Experience",
+          "nav.education": "Education",
+          "nav.skills": "Skills",
+          "nav.projects": "Projects",
+          "nav.references": "References",
+          "hero.kicker": "Fullstack Developer",
+          "hero.title": "Building scalable solutions in .NET, APIs, and domain-driven architectures.",
+          "hero.description":
+            "I'm a fullstack developer focused on backend and the Microsoft ecosystem. I help teams deliver robust products with reliable integrations, automated tests, and observability from the first deploy.",
+          "hero.cta.projects": "View projects",
+          "hero.cta.contact": "Contact & references",
+          "summary.title": "Quick summary",
+          "summary.item1": "8+ years delivering REST APIs, gRPC, and messaging with .NET.",
+          "summary.item2": "Experience with Azure cloud, CI/CD, and infrastructure as code.",
+          "summary.item3": "Integrations with ERPs, payment gateways, and legacy systems.",
+          "summary.item4": "Team mentoring and architecture standards definition.",
+          "about.kicker": "About",
+          "about.title": "Passion for reliable backends",
+          "about.description":
+            "I focus on stability, performance, and scalability. I have hands-on experience with CI pipelines, code reviews, and observability practices to keep production systems healthy. I enjoy translating business needs into sustainable technical solutions.",
+          "experience.kicker": "Experience",
+          "experience.title": "Professional history",
+          "experience.role1.title": "Tech Lead · Financial Platform",
+          "experience.role1.period": "2022 — Present",
+          "experience.role1.item1": ".NET microservices architecture with messaging and events.",
+          "experience.role1.item2": "Observability with OpenTelemetry, structured logs, and alerts.",
+          "experience.role1.item3": "Integrations with gateways and anti-fraud systems.",
+          "experience.role2.title": "Fullstack Developer · B2B E-commerce",
+          "experience.role2.period": "2019 — 2022",
+          "experience.role2.item1": "REST APIs in ASP.NET Core with React front-end.",
+          "experience.role2.item2": "Deployment automation and testing pipelines.",
+          "experience.role2.item3": "ERP and legacy system integrations.",
+          "education.kicker": "Education",
+          "education.title": "Education & certifications",
+          "education.item1.title": "Bachelor in Information Systems",
+          "education.item1.period": "2014 — 2018",
+          "education.item1.description": "Focus on software architecture, databases, and requirements engineering.",
+          "education.item2.title": "Microsoft Azure Developer Associate",
+          "education.item2.period": "Certification · 2023",
+          "education.item2.description": "Cloud solutions implementation, managed services, and DevOps.",
+          "skills.kicker": "Skills",
+          "skills.title": "Core stack",
+          "skills.item1": "C#, .NET 8, and ASP.NET Core",
+          "skills.item2": "Clean architecture, DDD, and CQRS",
+          "skills.item3": "Messaging with RabbitMQ and Azure Service Bus",
+          "skills.item4": "SQL Server, PostgreSQL, and Redis",
+          "skills.item5": "Docker, Kubernetes, and IaC",
+          "skills.item6": "CI/CD with GitHub Actions and Azure DevOps",
+          "projects.kicker": "Projects",
+          "projects.title": "Impact cases",
+          "projects.item1.title": "Payment platform",
+          "projects.item1.description":
+            "Transaction processing with high availability, anti-fraud, and automated reconciliation.",
+          "projects.item2.title": "Integration hub",
+          "projects.item2.description": "Connectors for ERPs and marketplaces with real-time SLA monitoring.",
+          "projects.item3.title": "Partner portal",
+          "projects.item3.description": "Unified experience for onboarding, documentation, and metrics dashboards.",
+          "references.kicker": "References",
+          "references.title": "Let's talk?",
+          "references.available.title": "Available for",
+          "references.available.item1": "Projects focused on APIs, integrations, and critical systems.",
+          "references.available.item2": "Architecture consulting and legacy modernization.",
+          "references.available.item3": "Backend team mentoring and fullstack squads.",
+          "references.contact.title": "Contact",
+          "references.contact.item1": "Email: contato@seudominio.com",
+          "references.contact.item2": "LinkedIn: linkedin.com/in/seunome",
+          "references.contact.item3": "GitHub: github.com/seunome",
+          "footer.rights": "© 2024 Fullstack Dev. All rights reserved.",
+          "footer.stack": "Built with Astro and Tailwind CSS.",
+          metaDescription: "Fullstack developer portfolio focused on .NET and backend.",
+          pageTitle: "Portfolio | Fullstack Developer",
+        },
+      };
+
+      const applyTranslations = (lang) => {
+        const dictionary = translations[lang] || translations.pt;
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.getAttribute("data-i18n");
+          if (key && dictionary[key]) {
+            element.textContent = dictionary[key];
+          }
+        });
+        if (metaDescription) {
+          metaDescription.setAttribute("content", dictionary.metaDescription);
+        }
+        if (dictionary.pageTitle) {
+          document.title = dictionary.pageTitle;
+        }
+        document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+      };
+
+      const setLanguage = (lang) => {
+        applyTranslations(lang);
+        if (langToggle) {
+          langToggle.textContent = lang === "en" ? "EN" : "PT";
+        }
+        if (langToggleMobile) {
+          langToggleMobile.textContent = lang === "en" ? "EN" : "PT";
+        }
+        localStorage.setItem("portfolioLanguage", lang);
+      };
+
+      const toggleLanguage = () => {
+        const current = localStorage.getItem("portfolioLanguage") || "pt";
+        const next = current === "pt" ? "en" : "pt";
+        setLanguage(next);
+      };
+
+      const initialLang = localStorage.getItem("portfolioLanguage") || "pt";
+      setLanguage(initialLang);
 
       if (toggle && menu) {
         toggle.addEventListener("click", () => {
@@ -275,6 +565,14 @@ const navItems = [
             toggle.setAttribute("aria-expanded", "false");
           }
         });
+      }
+
+      if (langToggle) {
+        langToggle.addEventListener("click", toggleLanguage);
+      }
+
+      if (langToggleMobile) {
+        langToggleMobile.addEventListener("click", toggleLanguage);
       }
     </script>
   </body>
