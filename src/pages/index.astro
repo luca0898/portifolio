@@ -1,11 +1,701 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const navItems = [
+  { href: "#sobre", key: "nav.about", label: "Sobre" },
+  { href: "#experiencias", key: "nav.experience", label: "Experiências" },
+  { href: "#formacoes", key: "nav.education", label: "Formações" },
+  { href: "#habilidades", key: "nav.skills", label: "Habilidades" },
+  { href: "#projetos", key: "nav.projects", label: "Projetos" },
+  { href: "#referencias", key: "nav.references", label: "Referências" },
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      id="meta-description"
+      name="description"
+      content="Portfólio de desenvolvedor fullstack com foco em .NET e backend."
+    />
+    <title>Portfólio | Desenvolvedor Fullstack</title>
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+      <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+        <a href="#topo" class="text-lg font-semibold tracking-wide text-white" data-i18n="brand.name">
+          Dev Fullstack
+        </a>
+        <button
+          id="menu-toggle"
+          class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:border-white/30 hover:bg-white/10 md:hidden"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          type="button"
+        >
+          <span data-i18n="nav.menu">Menu</span>
+          <span class="text-base">☰</span>
+        </button>
+        <button
+          id="lang-toggle"
+          class="hidden items-center rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:border-white/30 hover:bg-white/10 sm:inline-flex"
+          type="button"
+          aria-label="Alternar idioma"
+        >
+          PT
+        </button>
+        <nav class="hidden md:block" aria-label="Navegação principal">
+          <ul class="flex items-center gap-6 text-sm font-medium text-slate-200">
+            {navItems.map((item) => (
+              <li>
+                <a class="transition hover:text-white" href={item.href} data-i18n={item.key}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <div id="mobile-menu" class="hidden border-t border-white/10 bg-slate-950 md:hidden">
+        <nav class="mx-auto w-full max-w-6xl px-4 py-4 sm:px-6" aria-label="Navegação mobile">
+          <ul class="flex flex-col gap-3 text-sm font-medium text-slate-200">
+            {navItems.map((item) => (
+              <li>
+                <a
+                  class="block rounded-lg px-3 py-2 transition hover:bg-white/10 hover:text-white"
+                  href={item.href}
+                  data-i18n={item.key}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <button
+            id="lang-toggle-mobile"
+            class="mt-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:border-white/30 hover:bg-white/10"
+            type="button"
+            aria-label="Alternar idioma"
+          >
+            PT
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="topo" class="mx-auto w-full max-w-6xl px-4 pb-16 pt-12 sm:px-6 lg:pb-24">
+      <section class="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-12">
+        <div class="flex-1 space-y-6">
+          <p class="text-sm uppercase tracking-[0.3em] text-slate-400" data-i18n="hero.kicker">
+            Desenvolvedor Fullstack
+          </p>
+          <h1 class="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
+            <span data-i18n="hero.title">
+              Construindo soluções escaláveis em .NET, APIs e arquiteturas orientadas a domínio.
+            </span>
+          </h1>
+          <p class="max-w-2xl text-base text-slate-300 sm:text-lg">
+            <span data-i18n="hero.description">
+              Sou um desenvolvedor fullstack com foco em backend e ecossistema Microsoft. Ajudo times a entregar
+              produtos robustos, com integrações confiáveis, testes automatizados e observabilidade desde o
+              primeiro deploy.
+            </span>
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a
+              href="#projetos"
+              class="rounded-full bg-emerald-400 px-5 py-2 text-sm font-semibold text-emerald-950 transition hover:bg-emerald-300"
+              data-i18n="hero.cta.projects"
+            >
+              Ver projetos
+            </a>
+            <a
+              href="#referencias"
+              class="rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/40"
+              data-i18n="hero.cta.contact"
+            >
+              Contato e referências
+            </a>
+          </div>
+        </div>
+        <div class="flex-1">
+          <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/40 p-6 shadow-xl">
+            <div class="space-y-4">
+              <p class="text-sm font-semibold text-emerald-300" data-i18n="summary.title">Resumo rápido</p>
+              <ul class="space-y-3 text-sm text-slate-200">
+                <li data-i18n="summary.item1">+8 anos entregando APIs REST, gRPC e mensageria em .NET.</li>
+                <li data-i18n="summary.item2">
+                  Experiência com cloud Azure, CI/CD e infraestrutura como código.
+                </li>
+                <li data-i18n="summary.item3">Integrações com ERPs, gateways de pagamento e sistemas legados.</li>
+                <li data-i18n="summary.item4">Mentoria de equipes e definição de padrões de arquitetura.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="mt-16 scroll-mt-24 space-y-6">
+        <div class="space-y-2">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300" data-i18n="about.kicker">
+            Sobre
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="about.title">
+            Paixão por backend confiável
+          </h2>
+        </div>
+        <p class="text-base text-slate-300 sm:text-lg" data-i18n="about.description">
+          Trabalho com foco em estabilidade, performance e escalabilidade. Tenho vivência em pipelines de
+          integração contínua, code reviews e práticas de observabilidade para manter produtos saudáveis em
+          produção. Gosto de traduzir necessidades de negócio em soluções técnicas sustentáveis.
+        </p>
+      </section>
+
+      <section id="experiencias" class="mt-16 scroll-mt-24 space-y-8">
+        <div class="space-y-2">
+          <p
+            class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300"
+            data-i18n="experience.kicker"
+          >
+            Experiências
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="experience.title">
+            Histórico profissional
+          </h2>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-2">
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div class="space-y-1">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="experience.role1.company">
+                Zup Innovation
+              </p>
+              <h3 class="text-lg font-semibold text-white" data-i18n="experience.role1.title">
+                Full Stack Developer Senior
+              </h3>
+              <p class="text-sm text-slate-400" data-i18n="experience.role1.period">
+                abr de 2025 - o momento · 10 meses · Campinas · Remota
+              </p>
+              <p class="text-sm font-semibold text-slate-200" data-i18n="experience.role1.project">
+                Desenvolvedor de Software | Gestão de Leads - Investimentos (Itaú)
+              </p>
+            </div>
+            <ul class="mt-4 space-y-2 text-sm text-slate-300">
+              <li data-i18n="experience.role1.item1">
+                Experiência com arquitetura de microsserviços, sistemas distribuídos, EDA, REST APIs, filas e serviços backend de alta performance.
+              </li>
+              <li data-i18n="experience.role1.item2">
+                Foco em performance, escalabilidade, observabilidade, monitoramento, logging e padrões de resiliência.
+              </li>
+              <li data-i18n="experience.role1.item3">
+                Participação ativa em arquitetura, code reviews, decisões técnicas e melhoria contínua.
+              </li>
+              <li data-i18n="experience.role1.item4">
+                Desenvolvimento com .NET (C#, .NET 6/7/8, ASP.NET Core, Web API), PostgreSQL, AWS, Kafka, Docker, Terraform e CI/CD.
+              </li>
+            </ul>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div class="space-y-1">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="experience.role2.company">
+                Grupo Boticário
+              </p>
+              <h3 class="text-lg font-semibold text-white" data-i18n="experience.role2.title">
+                Full Stack Developer Senior
+              </h3>
+              <p class="text-sm text-slate-400" data-i18n="experience.role2.period">
+                ago de 2024 - fev de 2025 · 7 meses · Campinas, São Paulo, Brasil
+              </p>
+              <p class="text-sm font-semibold text-slate-200" data-i18n="experience.role2.project">
+                Plataforma de previsão de demanda
+              </p>
+            </div>
+            <ul class="mt-4 space-y-2 text-sm text-slate-300">
+              <li data-i18n="experience.role2.item1">
+                Desenvolvimento de plataforma de planejamento com dados de previsão e ML para otimizar produção e vendas.
+              </li>
+              <li data-i18n="experience.role2.item2">
+                Kotlin e React para ajustes de curvas estatísticas conforme sazonalidade.
+              </li>
+              <li data-i18n="experience.role2.item3">
+                Stack: GCP BigQuery, Postgres, AWS, Kotlin (Spring), Node.js, React microfrontend e CI/CD.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="formacoes" class="mt-16 scroll-mt-24 space-y-8">
+        <div class="space-y-2">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300" data-i18n="education.kicker">
+            Formações
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="education.title">
+            Educação & certificações
+          </h2>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-2">
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="education.item1.institution">
+              Universidade Cruzeiro do Sul
+            </p>
+            <h3 class="text-lg font-semibold text-white" data-i18n="education.item1.title">
+              Bacharelado, Análise de Sistemas de Computação
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="education.item1.period">jul de 2019 - jun de 2021</p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="education.item2.institution">
+              Centro Paula Souza ETEC João Belarmino
+            </p>
+            <h3 class="text-lg font-semibold text-white" data-i18n="education.item2.title">
+              Tecnólogo, Ensino Médio Integrado ao Técnico de Informática
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="education.item2.period">2013 - 2015</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="certificacoes" class="mt-16 scroll-mt-24 space-y-8">
+        <div class="space-y-2">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300" data-i18n="certifications.kicker">
+            Licenças e certificados
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="certifications.title">
+            Credenciais profissionais
+          </h2>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="certifications.item1.issuer">
+              Zup Innovation
+            </p>
+            <h3 class="text-lg font-semibold text-white" data-i18n="certifications.item1.title">
+              Stackspot BIT (Practitioner)
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="certifications.item1.period">Verificação emitida em jul de 2025</p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="certifications.item2.issuer">
+              Udemy
+            </p>
+            <h3 class="text-lg font-semibold text-white" data-i18n="certifications.item2.title">
+              The Complete Apache Kafka Practical Guide
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="certifications.item2.period">Verificação emitida em fev de 2023</p>
+            <p class="mt-2 text-xs text-slate-400" data-i18n="certifications.item2.code">
+              Código da credencial: UC-080a2452-ccd8-4edd-8178-de50b417c430
+            </p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="certifications.item3.issuer">
+              Zup Innovation
+            </p>
+            <h3 class="text-lg font-semibold text-white" data-i18n="certifications.item3.title">
+              IA generativa
+            </h3>
+            <p class="text-sm text-slate-400" data-i18n="certifications.item3.period">Verificação emitida em jul de 2025</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="habilidades" class="mt-16 scroll-mt-24 space-y-8">
+        <div class="space-y-2">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300" data-i18n="skills.kicker">
+            Habilidades
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="skills.title">
+            Stack principal
+          </h2>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { key: "skills.item1", label: "C#, .NET 8 e ASP.NET Core" },
+            { key: "skills.item2", label: "Arquitetura limpa, DDD e CQRS" },
+            { key: "skills.item3", label: "Mensageria com RabbitMQ e Azure Service Bus" },
+            { key: "skills.item4", label: "SQL Server, PostgreSQL e Redis" },
+            { key: "skills.item5", label: "Docker, Kubernetes e IaC" },
+            { key: "skills.item6", label: "CI/CD com GitHub Actions e Azure DevOps" },
+          ].map((skill) => (
+            <div
+              class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200"
+              data-i18n={skill.key}
+            >
+              {skill.label}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="projetos" class="mt-16 scroll-mt-24 space-y-8">
+        <div class="space-y-2">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300" data-i18n="projects.kicker">
+            Projetos
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="projects.title">
+            Cases de impacto
+          </h2>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          {[
+            {
+              title: "Plataforma de pagamentos",
+              titleKey: "projects.item1.title",
+              description:
+                "Processamento de transações com alta disponibilidade, antifraude e reconciliação automática.",
+              descriptionKey: "projects.item1.description",
+              stack: "ASP.NET Core · Kafka · Azure SQL",
+            },
+            {
+              title: "Hub de integrações",
+              titleKey: "projects.item2.title",
+              description: "Conectores para ERPs e marketplaces com monitoramento de SLA em tempo real.",
+              descriptionKey: "projects.item2.description",
+              stack: ".NET Worker · Redis · Event Grid",
+            },
+            {
+              title: "Portal de parceiros",
+              titleKey: "projects.item3.title",
+              description: "Experiência unificada para onboarding, documentação e dashboards de métricas.",
+              descriptionKey: "projects.item3.description",
+              stack: "React · BFF .NET · Azure AD",
+            },
+          ].map((project) => (
+            <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 class="text-lg font-semibold text-white" data-i18n={project.titleKey}>
+                {project.title}
+              </h3>
+              <p class="mt-3 text-sm text-slate-300" data-i18n={project.descriptionKey}>
+                {project.description}
+              </p>
+              <p class="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200">
+                {project.stack}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="referencias" class="mt-16 scroll-mt-24 space-y-8">
+        <div class="space-y-2">
+          <p
+            class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300"
+            data-i18n="references.kicker"
+          >
+            Referências
+          </p>
+          <h2 class="text-2xl font-semibold text-white sm:text-3xl" data-i18n="references.title">
+            Vamos conversar?
+          </h2>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-2">
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <h3 class="text-lg font-semibold text-white" data-i18n="references.available.title">
+              Disponível para
+            </h3>
+            <ul class="mt-4 space-y-2 text-sm text-slate-300">
+              <li data-i18n="references.available.item1">
+                Projetos com foco em APIs, integrações e sistemas críticos.
+              </li>
+              <li data-i18n="references.available.item2">
+                Consultoria em arquitetura e modernização de legado.
+              </li>
+              <li data-i18n="references.available.item3">
+                Mentoria de times backend e squads fullstack.
+              </li>
+            </ul>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <h3 class="text-lg font-semibold text-white" data-i18n="references.contact.title">Contato</h3>
+            <ul class="mt-4 space-y-3 text-sm text-slate-300">
+              <li data-i18n="references.contact.item1">Email: contato@seudominio.com</li>
+              <li data-i18n="references.contact.item2">LinkedIn: linkedin.com/in/seunome</li>
+              <li data-i18n="references.contact.item3">GitHub: github.com/seunome</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-8">
+      <div class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 text-xs text-slate-400 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
+        <span data-i18n="footer.rights">© 2024 Dev Fullstack. Todos os direitos reservados.</span>
+        <span data-i18n="footer.stack">Feito com Astro e Tailwind CSS.</span>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      const langToggle = document.getElementById("lang-toggle");
+      const langToggleMobile = document.getElementById("lang-toggle-mobile");
+      const metaDescription = document.getElementById("meta-description");
+
+      const translations = {
+        pt: {
+          "brand.name": "Dev Fullstack",
+          "nav.menu": "Menu",
+          "nav.about": "Sobre",
+          "nav.experience": "Experiências",
+          "nav.education": "Formações",
+          "nav.skills": "Habilidades",
+          "nav.projects": "Projetos",
+          "nav.references": "Referências",
+          "hero.kicker": "Desenvolvedor Fullstack",
+          "hero.title": "Construindo soluções escaláveis em .NET, APIs e arquiteturas orientadas a domínio.",
+          "hero.description":
+            "Sou um desenvolvedor fullstack com foco em backend e ecossistema Microsoft. Ajudo times a entregar produtos robustos, com integrações confiáveis, testes automatizados e observabilidade desde o primeiro deploy.",
+          "hero.cta.projects": "Ver projetos",
+          "hero.cta.contact": "Contato e referências",
+          "summary.title": "Resumo rápido",
+          "summary.item1": "+8 anos entregando APIs REST, gRPC e mensageria em .NET.",
+          "summary.item2": "Experiência com cloud Azure, CI/CD e infraestrutura como código.",
+          "summary.item3": "Integrações com ERPs, gateways de pagamento e sistemas legados.",
+          "summary.item4": "Mentoria de equipes e definição de padrões de arquitetura.",
+          "about.kicker": "Sobre",
+          "about.title": "Paixão por backend confiável",
+          "about.description":
+            "Trabalho com foco em estabilidade, performance e escalabilidade. Tenho vivência em pipelines de integração contínua, code reviews e práticas de observabilidade para manter produtos saudáveis em produção. Gosto de traduzir necessidades de negócio em soluções técnicas sustentáveis.",
+          "experience.kicker": "Experiências",
+          "experience.title": "Histórico profissional",
+          "experience.role1.company": "Zup Innovation",
+          "experience.role1.title": "Full Stack Developer Senior",
+          "experience.role1.period": "abr de 2025 - o momento · 10 meses · Campinas · Remota",
+          "experience.role1.project": "Desenvolvedor de Software | Gestão de Leads - Investimentos (Itaú)",
+          "experience.role1.item1":
+            "Experiência com arquitetura de microsserviços, sistemas distribuídos, EDA, REST APIs, filas e serviços backend de alta performance.",
+          "experience.role1.item2":
+            "Foco em performance, escalabilidade, observabilidade, monitoramento, logging e padrões de resiliência.",
+          "experience.role1.item3":
+            "Participação ativa em arquitetura, code reviews, decisões técnicas e melhoria contínua.",
+          "experience.role1.item4":
+            "Desenvolvimento com .NET (C#, .NET 6/7/8, ASP.NET Core, Web API), PostgreSQL, AWS, Kafka, Docker, Terraform e CI/CD.",
+          "experience.role2.company": "Grupo Boticário",
+          "experience.role2.title": "Full Stack Developer Senior",
+          "experience.role2.period": "ago de 2024 - fev de 2025 · 7 meses · Campinas, São Paulo, Brasil",
+          "experience.role2.project": "Plataforma de previsão de demanda",
+          "experience.role2.item1":
+            "Desenvolvimento de plataforma de planejamento com dados de previsão e ML para otimizar produção e vendas.",
+          "experience.role2.item2":
+            "Kotlin e React para ajustes de curvas estatísticas conforme sazonalidade.",
+          "experience.role2.item3":
+            "Stack: GCP BigQuery, Postgres, AWS, Kotlin (Spring), Node.js, React microfrontend e CI/CD.",
+          "education.kicker": "Formações",
+          "education.title": "Formação acadêmica",
+          "education.item1.institution": "Universidade Cruzeiro do Sul",
+          "education.item1.title": "Bacharelado, Análise de Sistemas de Computação",
+          "education.item1.period": "jul de 2019 - jun de 2021",
+          "education.item2.institution": "Centro Paula Souza ETEC João Belarmino",
+          "education.item2.title": "Tecnólogo, Ensino Médio Integrado ao Técnico de Informática",
+          "education.item2.period": "2013 - 2015",
+          "certifications.kicker": "Licenças e certificados",
+          "certifications.title": "Credenciais profissionais",
+          "certifications.item1.issuer": "Zup Innovation",
+          "certifications.item1.title": "Stackspot BIT (Practitioner)",
+          "certifications.item1.period": "Verificação emitida em jul de 2025",
+          "certifications.item2.issuer": "Udemy",
+          "certifications.item2.title": "The Complete Apache Kafka Practical Guide",
+          "certifications.item2.period": "Verificação emitida em fev de 2023",
+          "certifications.item2.code": "Código da credencial: UC-080a2452-ccd8-4edd-8178-de50b417c430",
+          "certifications.item3.issuer": "Zup Innovation",
+          "certifications.item3.title": "IA generativa",
+          "certifications.item3.period": "Verificação emitida em jul de 2025",
+          "skills.kicker": "Habilidades",
+          "skills.title": "Stack principal",
+          "skills.item1": "C#, .NET 8 e ASP.NET Core",
+          "skills.item2": "Arquitetura limpa, DDD e CQRS",
+          "skills.item3": "Mensageria com RabbitMQ e Azure Service Bus",
+          "skills.item4": "SQL Server, PostgreSQL e Redis",
+          "skills.item5": "Docker, Kubernetes e IaC",
+          "skills.item6": "CI/CD com GitHub Actions e Azure DevOps",
+          "projects.kicker": "Projetos",
+          "projects.title": "Cases de impacto",
+          "projects.item1.title": "Plataforma de pagamentos",
+          "projects.item1.description":
+            "Processamento de transações com alta disponibilidade, antifraude e reconciliação automática.",
+          "projects.item2.title": "Hub de integrações",
+          "projects.item2.description": "Conectores para ERPs e marketplaces com monitoramento de SLA em tempo real.",
+          "projects.item3.title": "Portal de parceiros",
+          "projects.item3.description": "Experiência unificada para onboarding, documentação e dashboards de métricas.",
+          "references.kicker": "Referências",
+          "references.title": "Vamos conversar?",
+          "references.available.title": "Disponível para",
+          "references.available.item1": "Projetos com foco em APIs, integrações e sistemas críticos.",
+          "references.available.item2": "Consultoria em arquitetura e modernização de legado.",
+          "references.available.item3": "Mentoria de times backend e squads fullstack.",
+          "references.contact.title": "Contato",
+          "references.contact.item1": "Email: contato@seudominio.com",
+          "references.contact.item2": "LinkedIn: linkedin.com/in/seunome",
+          "references.contact.item3": "GitHub: github.com/seunome",
+          "footer.rights": "© 2024 Dev Fullstack. Todos os direitos reservados.",
+          "footer.stack": "Feito com Astro e Tailwind CSS.",
+          metaDescription: "Portfólio de desenvolvedor fullstack com foco em .NET e backend.",
+          pageTitle: "Portfólio | Desenvolvedor Fullstack",
+        },
+        en: {
+          "brand.name": "Fullstack Dev",
+          "nav.menu": "Menu",
+          "nav.about": "About",
+          "nav.experience": "Experience",
+          "nav.education": "Education",
+          "nav.skills": "Skills",
+          "nav.projects": "Projects",
+          "nav.references": "References",
+          "hero.kicker": "Fullstack Developer",
+          "hero.title": "Building scalable solutions in .NET, APIs, and domain-driven architectures.",
+          "hero.description":
+            "I'm a fullstack developer focused on backend and the Microsoft ecosystem. I help teams deliver robust products with reliable integrations, automated tests, and observability from the first deploy.",
+          "hero.cta.projects": "View projects",
+          "hero.cta.contact": "Contact & references",
+          "summary.title": "Quick summary",
+          "summary.item1": "8+ years delivering REST APIs, gRPC, and messaging with .NET.",
+          "summary.item2": "Experience with Azure cloud, CI/CD, and infrastructure as code.",
+          "summary.item3": "Integrations with ERPs, payment gateways, and legacy systems.",
+          "summary.item4": "Team mentoring and architecture standards definition.",
+          "about.kicker": "About",
+          "about.title": "Passion for reliable backends",
+          "about.description":
+            "I focus on stability, performance, and scalability. I have hands-on experience with CI pipelines, code reviews, and observability practices to keep production systems healthy. I enjoy translating business needs into sustainable technical solutions.",
+          "experience.kicker": "Experience",
+          "experience.title": "Professional history",
+          "experience.role1.company": "Zup Innovation",
+          "experience.role1.title": "Senior Full Stack Developer",
+          "experience.role1.period": "Apr 2025 - Present · 10 months · Campinas · Remote",
+          "experience.role1.project": "Software Developer | Lead Management - Investments (Itaú)",
+          "experience.role1.item1":
+            "Experience with microservices architecture, distributed systems, EDA, REST APIs, message queues, and high-performance backend services.",
+          "experience.role1.item2":
+            "Focus on performance, scalability, observability, monitoring, logging, and resilience patterns.",
+          "experience.role1.item3":
+            "Active participation in architecture discussions, code reviews, technical decisions, and continuous improvement.",
+          "experience.role1.item4":
+            "Backend development with .NET (C#, .NET 6/7/8, ASP.NET Core, Web API), PostgreSQL, AWS, Kafka, Docker, Terraform, and CI/CD.",
+          "experience.role2.company": "Grupo Boticário",
+          "experience.role2.title": "Senior Full Stack Developer",
+          "experience.role2.period": "Aug 2024 - Feb 2025 · 7 months · Campinas, São Paulo, Brazil",
+          "experience.role2.project": "Demand forecasting platform",
+          "experience.role2.item1":
+            "Built a planning platform using forecast and ML data to optimize production and sales.",
+          "experience.role2.item2":
+            "Kotlin and React to adjust statistical curves according to seasonal demand.",
+          "experience.role2.item3":
+            "Stack: GCP BigQuery, Postgres, AWS, Kotlin (Spring), Node.js, React microfrontends, and CI/CD.",
+          "education.kicker": "Education",
+          "education.title": "Academic background",
+          "education.item1.institution": "Universidade Cruzeiro do Sul",
+          "education.item1.title": "Bachelor's in Computer Systems Analysis",
+          "education.item1.period": "Jul 2019 - Jun 2021",
+          "education.item2.institution": "Centro Paula Souza ETEC João Belarmino",
+          "education.item2.title": "Technical High School in IT",
+          "education.item2.period": "2013 - 2015",
+          "certifications.kicker": "Licenses & certifications",
+          "certifications.title": "Professional credentials",
+          "certifications.item1.issuer": "Zup Innovation",
+          "certifications.item1.title": "Stackspot BIT (Practitioner)",
+          "certifications.item1.period": "Verified Jul 2025",
+          "certifications.item2.issuer": "Udemy",
+          "certifications.item2.title": "The Complete Apache Kafka Practical Guide",
+          "certifications.item2.period": "Verified Feb 2023",
+          "certifications.item2.code": "Credential ID: UC-080a2452-ccd8-4edd-8178-de50b417c430",
+          "certifications.item3.issuer": "Zup Innovation",
+          "certifications.item3.title": "Generative AI",
+          "certifications.item3.period": "Verified Jul 2025",
+          "skills.kicker": "Skills",
+          "skills.title": "Core stack",
+          "skills.item1": "C#, .NET 8, and ASP.NET Core",
+          "skills.item2": "Clean architecture, DDD, and CQRS",
+          "skills.item3": "Messaging with RabbitMQ and Azure Service Bus",
+          "skills.item4": "SQL Server, PostgreSQL, and Redis",
+          "skills.item5": "Docker, Kubernetes, and IaC",
+          "skills.item6": "CI/CD with GitHub Actions and Azure DevOps",
+          "projects.kicker": "Projects",
+          "projects.title": "Impact cases",
+          "projects.item1.title": "Payment platform",
+          "projects.item1.description":
+            "Transaction processing with high availability, anti-fraud, and automated reconciliation.",
+          "projects.item2.title": "Integration hub",
+          "projects.item2.description": "Connectors for ERPs and marketplaces with real-time SLA monitoring.",
+          "projects.item3.title": "Partner portal",
+          "projects.item3.description": "Unified experience for onboarding, documentation, and metrics dashboards.",
+          "references.kicker": "References",
+          "references.title": "Let's talk?",
+          "references.available.title": "Available for",
+          "references.available.item1": "Projects focused on APIs, integrations, and critical systems.",
+          "references.available.item2": "Architecture consulting and legacy modernization.",
+          "references.available.item3": "Backend team mentoring and fullstack squads.",
+          "references.contact.title": "Contact",
+          "references.contact.item1": "Email: contato@seudominio.com",
+          "references.contact.item2": "LinkedIn: linkedin.com/in/seunome",
+          "references.contact.item3": "GitHub: github.com/seunome",
+          "footer.rights": "© 2024 Fullstack Dev. All rights reserved.",
+          "footer.stack": "Built with Astro and Tailwind CSS.",
+          metaDescription: "Fullstack developer portfolio focused on .NET and backend.",
+          pageTitle: "Portfolio | Fullstack Developer",
+        },
+      };
+
+      const applyTranslations = (lang) => {
+        const dictionary = translations[lang] || translations.pt;
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.getAttribute("data-i18n");
+          if (key && dictionary[key]) {
+            element.textContent = dictionary[key];
+          }
+        });
+        if (metaDescription) {
+          metaDescription.setAttribute("content", dictionary.metaDescription);
+        }
+        if (dictionary.pageTitle) {
+          document.title = dictionary.pageTitle;
+        }
+        document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+      };
+
+      const setLanguage = (lang) => {
+        applyTranslations(lang);
+        if (langToggle) {
+          langToggle.textContent = lang === "en" ? "EN" : "PT";
+        }
+        if (langToggleMobile) {
+          langToggleMobile.textContent = lang === "en" ? "EN" : "PT";
+        }
+        localStorage.setItem("portfolioLanguage", lang);
+      };
+
+      const toggleLanguage = () => {
+        const current = localStorage.getItem("portfolioLanguage") || "pt";
+        const next = current === "pt" ? "en" : "pt";
+        setLanguage(next);
+      };
+
+      const initialLang = localStorage.getItem("portfolioLanguage") || "pt";
+      setLanguage(initialLang);
+
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!isExpanded));
+          menu.classList.toggle("hidden");
+        });
+
+        menu.addEventListener("click", (event) => {
+          const target = event.target;
+          if (target instanceof HTMLAnchorElement) {
+            menu.classList.add("hidden");
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        });
+      }
+
+      if (langToggle) {
+        langToggle.addEventListener("click", toggleLanguage);
+      }
+
+      if (langToggleMobile) {
+        langToggleMobile.addEventListener("click", toggleLanguage);
+      }
+    </script>
+  </body>
+</html>
