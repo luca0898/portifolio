@@ -1,6 +1,11 @@
 ---
 import "../styles/global.css";
 
+const siteUrl = 'https://lucaguiraldello.net';
+const title = 'Luca Guiraldello — Fullstack Developer';
+const description = 'Portfólio profissional com projetos em .NET, cloud, arquitetura e engenharia de software.';
+const image = `${siteUrl}/images/profile.jpg`;
+
 const navItems = [
   { href: "#sobre", key: "nav.about", label: "Sobre" },
   { href: "#experiencias", key: "nav.experience", label: "Experiências" },
@@ -25,7 +30,25 @@ const navItems = [
       name="description"
       content="Portfólio de desenvolvedor fullstack com foco em .NET e backend."
     />
-    <title>Portfólio | Desenvolvedor Fullstack</title>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- WhatsApp / Facebook -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter (funciona no WhatsApp também) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
   </head>
   <body class="bg-slate-950 text-slate-100 antialiased">
     <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
