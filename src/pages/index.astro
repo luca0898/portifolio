@@ -267,6 +267,14 @@ const navItems = [
           toggle.setAttribute("aria-expanded", String(!isExpanded));
           menu.classList.toggle("hidden");
         });
+
+        menu.addEventListener("click", (event) => {
+          const target = event.target;
+          if (target instanceof HTMLAnchorElement) {
+            menu.classList.add("hidden");
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        });
       }
     </script>
   </body>
