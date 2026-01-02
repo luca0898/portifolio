@@ -145,6 +145,14 @@ const navItems = [
             >
               Ver projetos
             </a>
+            <button
+              id="cv-modal-open"
+              type="button"
+              class="rounded-full border border-emerald-400/70 px-5 py-2 text-sm font-semibold text-emerald-200 transition hover:border-emerald-300 hover:text-emerald-100"
+              data-i18n="hero.cta.cv"
+            >
+              Download do CV
+            </button>
             <a
               href="#referencias"
               class="rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/40"
@@ -454,6 +462,56 @@ const navItems = [
       </section>
     </main>
 
+    <div
+      id="cv-modal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 px-4 py-6 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <div class="relative w-full max-w-lg rounded-3xl border border-white/10 bg-slate-900 p-6 shadow-2xl sm:p-8">
+        <button
+          id="cv-modal-close"
+          type="button"
+          class="absolute right-4 top-4 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white transition hover:border-white/30 hover:bg-white/10"
+          aria-label="Fechar modal"
+          data-i18n="cv.modal.close"
+        >
+          Fechar
+        </button>
+        <div class="space-y-3">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-300" data-i18n="cv.modal.kicker">
+            Currículo
+          </p>
+          <h3 class="text-2xl font-semibold text-white" data-i18n="cv.modal.title">
+            Escolha o formato do CV
+          </h3>
+          <p class="text-sm text-slate-300" data-i18n="cv.modal.description">
+            Baixe o resumo ou solicite o CV completo por e-mail.
+          </p>
+        </div>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="/cv/luca-guiraldello-cv-resumido.pdf"
+            download
+            class="inline-flex flex-1 items-center justify-center rounded-full bg-emerald-400 px-5 py-2 text-sm font-semibold text-emerald-950 transition hover:bg-emerald-300"
+            data-i18n="cv.modal.download"
+            data-close-modal="true"
+          >
+            Download resumido
+          </a>
+          <a
+            href="mailto:lucaguiraldello@hotmail.com?subject=Solicitação%20de%20CV%20completo&body=Olá%20Luca%2C%20gostaria%20de%20receber%20o%20CV%20completo.%20Obrigado!"
+            class="inline-flex flex-1 items-center justify-center rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/40"
+            data-i18n="cv.modal.request"
+            data-close-modal="true"
+          >
+            Solicitar CV completo
+          </a>
+        </div>
+      </div>
+    </div>
+
     <footer class="border-t border-white/10 py-8">
       <div class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 text-xs text-slate-400 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
         <span data-i18n="footer.rights">© 2024 Dev Fullstack. Todos os direitos reservados.</span>
@@ -466,6 +524,9 @@ const navItems = [
       const langToggle = document.getElementById("lang-toggle");
       const langToggleMobile = document.getElementById("lang-toggle-mobile");
       const metaDescription = document.getElementById("meta-description");
+      const cvModalOpen = document.getElementById("cv-modal-open");
+      const cvModal = document.getElementById("cv-modal");
+      const cvModalClose = document.getElementById("cv-modal-close");
 
       const translations = {
         pt: {
@@ -482,6 +543,7 @@ const navItems = [
           "hero.description":
             "Sou um desenvolvedor fullstack com foco em backend e ecossistema Microsoft. Ajudo times a entregar produtos robustos, com integrações confiáveis, testes automatizados e observabilidade desde o primeiro deploy.",
           "hero.cta.projects": "Ver projetos",
+          "hero.cta.cv": "Download do CV",
           "hero.cta.contact": "Contato e referências",
           "summary.title": "Resumo rápido",
           "summary.item1": "+8 anos entregando APIs REST, gRPC e mensageria em .NET.",
@@ -565,6 +627,12 @@ const navItems = [
           "references.contact.item1": "Email: lucaguiraldello@hotmail.com",
           "references.contact.item2": "LinkedIn: linkedin.com/in/luca-guiraldello",
           "references.contact.item3": "GitHub: github.com/luca0898",
+          "cv.modal.close": "Fechar",
+          "cv.modal.kicker": "Currículo",
+          "cv.modal.title": "Escolha o formato do CV",
+          "cv.modal.description": "Baixe o resumo ou solicite o CV completo por e-mail.",
+          "cv.modal.download": "Download resumido",
+          "cv.modal.request": "Solicitar CV completo",
           "footer.rights": "© 2024 Luca Guiraldello. Todos os direitos reservados.",
           metaDescription: "Portfólio de desenvolvedor fullstack com foco em .NET e backend.",
           pageTitle: "Portfólio | Desenvolvedor Fullstack",
@@ -583,6 +651,7 @@ const navItems = [
           "hero.description":
             "I'm a fullstack developer focused on backend and the Microsoft ecosystem. I help teams deliver robust products with reliable integrations, automated tests, and observability from the first deploy.",
           "hero.cta.projects": "View projects",
+          "hero.cta.cv": "Download CV",
           "hero.cta.contact": "Contact & references",
           "summary.title": "Quick summary",
           "summary.item1": "8+ years delivering REST APIs, gRPC, and messaging with .NET.",
@@ -666,6 +735,12 @@ const navItems = [
           "references.contact.item1": "Email: lucaguiraldello@hotmail.com",
           "references.contact.item2": "LinkedIn: linkedin.com/in/luca-guiraldello",
           "references.contact.item3": "GitHub: github.com/luca0898",
+          "cv.modal.close": "Close",
+          "cv.modal.kicker": "Resume",
+          "cv.modal.title": "Choose the CV format",
+          "cv.modal.description": "Download the summary or request the full CV by email.",
+          "cv.modal.download": "Download summary",
+          "cv.modal.request": "Request full CV",
           "footer.rights": "© 2024 Luca Guiraldello. All rights reserved.",
           metaDescription: "Fullstack developer portfolio focused on .NET and backend.",
           pageTitle: "Portfolio | Fullstack Developer",
@@ -732,6 +807,46 @@ const navItems = [
       if (langToggleMobile) {
         langToggleMobile.addEventListener("click", toggleLanguage);
       }
+
+      const openCvModal = () => {
+        if (!cvModal) return;
+        cvModal.classList.remove("hidden");
+        cvModal.classList.add("flex");
+        cvModal.setAttribute("aria-hidden", "false");
+      };
+
+      const closeCvModal = () => {
+        if (!cvModal) return;
+        cvModal.classList.add("hidden");
+        cvModal.classList.remove("flex");
+        cvModal.setAttribute("aria-hidden", "true");
+      };
+
+      if (cvModalOpen) {
+        cvModalOpen.addEventListener("click", openCvModal);
+      }
+
+      if (cvModalClose) {
+        cvModalClose.addEventListener("click", closeCvModal);
+      }
+
+      if (cvModal) {
+        cvModal.addEventListener("click", (event) => {
+          const target = event.target;
+          if (target === cvModal) {
+            closeCvModal();
+          }
+          if (target instanceof HTMLElement && target.closest("[data-close-modal='true']")) {
+            closeCvModal();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeCvModal();
+        }
+      });
     </script>
   </body>
 </html>
