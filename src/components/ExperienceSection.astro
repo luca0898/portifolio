@@ -1,0 +1,71 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section id="experiencias" class="mt-16 scroll-mt-24 space-y-8">
+  <SectionHeader
+    kicker="Experiências"
+    title="Histórico profissional"
+    kickerKey="experience.kicker"
+    titleKey="experience.title"
+  />
+  <div class="grid gap-6 lg:grid-cols-2">
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <div class="space-y-1">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="experience.role1.company">
+          Zup Innovation
+        </p>
+        <h3 class="text-lg font-semibold text-white" data-i18n="experience.role1.title">
+          Full Stack Developer Senior
+        </h3>
+        <p class="text-sm text-slate-400" data-i18n="experience.role1.period">
+          abr de 2025 - o momento · 10 meses · Campinas, SP - Brasil · Remoto
+        </p>
+        <p class="text-sm font-semibold text-slate-200" data-i18n="experience.role1.project">
+          Desenvolvedor de Software | Gestão de Leads - Investimentos (Itaú)
+        </p>
+      </div>
+      <ul class="mt-4 space-y-2 text-sm text-slate-300">
+        <li data-i18n="experience.role1.item1">
+          Experiência com arquitetura de microsserviços, sistemas distribuídos, EDA, REST APIs, filas e serviços backend de alta performance.
+        </li>
+        <li data-i18n="experience.role1.item2">
+          Foco em performance, escalabilidade, observabilidade, monitoramento, logging e padrões de resiliência.
+        </li>
+        <li data-i18n="experience.role1.item3">
+          Participação ativa em arquitetura, code reviews, decisões técnicas e melhoria contínua.
+        </li>
+        <li data-i18n="experience.role1.item4">
+          Desenvolvimento com .NET (C#, .NET 6/7/8, ASP.NET Core, Web API), PostgreSQL, AWS, Kafka, Docker, Terraform e CI/CD.
+        </li>
+      </ul>
+    </article>
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <div class="space-y-1">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="experience.role2.company">
+          Grupo Boticário
+        </p>
+        <h3 class="text-lg font-semibold text-white" data-i18n="experience.role2.title">
+          Full Stack Developer Senior
+        </h3>
+        <p class="text-sm text-slate-400" data-i18n="experience.role2.period">
+          ago de 2024 - fev de 2025 · 7 meses · Campinas, SP - Brasil · Remoto
+        </p>
+        <p class="text-sm font-semibold text-slate-200" data-i18n="experience.role2.project">
+          Plataforma de previsão de demanda
+        </p>
+      </div>
+      <ul class="mt-4 space-y-2 text-sm text-slate-300">
+        <li data-i18n="experience.role2.item1">
+          Desenvolvimento de plataforma de planejamento com dados de previsão e ML para otimizar produção e vendas.
+        </li>
+        <li data-i18n="experience.role2.item2">
+          Kotlin e React para ajustes de curvas estatísticas conforme sazonalidade.
+        </li>
+        <li data-i18n="experience.role2.item3">
+          Stack: GCP BigQuery, Postgres, AWS, Kotlin (Spring), Node.js, React microfrontend e CI/CD.
+        </li>
+      </ul>
+    </article>
+  </div>
+</section>

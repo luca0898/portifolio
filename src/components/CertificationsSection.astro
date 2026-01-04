@@ -1,0 +1,44 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section id="certificacoes" class="mt-16 scroll-mt-24 space-y-8">
+  <SectionHeader
+    kicker="Licenças e certificados"
+    title="Credenciais profissionais"
+    kickerKey="certifications.kicker"
+    titleKey="certifications.title"
+  />
+  <div class="grid gap-6 lg:grid-cols-3">
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="certifications.item1.issuer">
+        Zup Innovation
+      </p>
+      <h3 class="text-lg font-semibold text-white" data-i18n="certifications.item1.title">
+        Stackspot BIT (Practitioner)
+      </h3>
+      <p class="text-sm text-slate-400" data-i18n="certifications.item1.period">Verificação emitida em jul de 2025</p>
+    </article>
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="certifications.item2.issuer">
+        Udemy
+      </p>
+      <h3 class="text-lg font-semibold text-white" data-i18n="certifications.item2.title">
+        The Complete Apache Kafka Practical Guide
+      </h3>
+      <p class="text-sm text-slate-400" data-i18n="certifications.item2.period">Verificação emitida em fev de 2023</p>
+      <p class="mt-2 text-xs text-slate-400" data-i18n="certifications.item2.code">
+        Código da credencial: UC-080a2452-ccd8-4edd-8178-de50b417c430
+      </p>
+    </article>
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="certifications.item3.issuer">
+        Zup Innovation
+      </p>
+      <h3 class="text-lg font-semibold text-white" data-i18n="certifications.item3.title">
+        IA generativa
+      </h3>
+      <p class="text-sm text-slate-400" data-i18n="certifications.item3.period">Verificação emitida em jul de 2025</p>
+    </article>
+  </div>
+</section>

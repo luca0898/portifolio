@@ -1,0 +1,38 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section id="referencias" class="mt-16 scroll-mt-24 space-y-8">
+  <SectionHeader
+    kicker="Referências"
+    title="Vamos conversar?"
+    kickerKey="references.kicker"
+    titleKey="references.title"
+  />
+  <div class="grid gap-6 lg:grid-cols-2">
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h3 class="text-lg font-semibold text-white" data-i18n="references.available.title">
+        Disponível para
+      </h3>
+      <ul class="mt-4 space-y-2 text-sm text-slate-300">
+        <li data-i18n="references.available.item1">
+          Projetos com foco em APIs, integrações e sistemas críticos.
+        </li>
+        <li data-i18n="references.available.item2">
+          Consultoria em arquitetura e modernização de legado.
+        </li>
+        <li data-i18n="references.available.item3">
+          Mentoria de times backend e squads fullstack.
+        </li>
+      </ul>
+    </article>
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h3 class="text-lg font-semibold text-white" data-i18n="references.contact.title">Contato</h3>
+      <ul class="mt-4 space-y-3 text-sm text-slate-300">
+        <li data-i18n="references.contact.item1">Email: lucaguiraldello@hotmail.com</li>
+        <li data-i18n="references.contact.item2">LinkedIn: linkedin.com/in/luca-guiraldello</li>
+        <li data-i18n="references.contact.item3">GitHub: github.com/luca0898</li>
+      </ul>
+    </article>
+  </div>
+</section>

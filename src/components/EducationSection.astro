@@ -1,0 +1,32 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section id="formacoes" class="mt-16 scroll-mt-24 space-y-8">
+  <SectionHeader
+    kicker="Formações"
+    title="Educação & certificações"
+    kickerKey="education.kicker"
+    titleKey="education.title"
+  />
+  <div class="grid gap-6 lg:grid-cols-2">
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="education.item1.institution">
+        Universidade Cruzeiro do Sul
+      </p>
+      <h3 class="text-lg font-semibold text-white" data-i18n="education.item1.title">
+        Bacharelado, Análise de Sistemas de Computação
+      </h3>
+      <p class="text-sm text-slate-400" data-i18n="education.item1.period">jul de 2019 - jun de 2021</p>
+    </article>
+    <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300" data-i18n="education.item2.institution">
+        Centro Paula Souza ETEC João Belarmino
+      </p>
+      <h3 class="text-lg font-semibold text-white" data-i18n="education.item2.title">
+        Tecnólogo, Ensino Médio Integrado ao Técnico de Informática
+      </h3>
+      <p class="text-sm text-slate-400" data-i18n="education.item2.period">2013 - 2015</p>
+    </article>
+  </div>
+</section>
