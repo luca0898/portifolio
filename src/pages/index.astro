@@ -90,8 +90,7 @@ const navItems = [
 
     <SiteFooter />
 
-    <script>
-      const translations = ${JSON.stringify(translations)};
+    <script define:vars={{ translations }}>
       const toggle = document.getElementById("menu-toggle");
       const menu = document.getElementById("mobile-menu");
       const langToggle = document.getElementById("lang-toggle");
