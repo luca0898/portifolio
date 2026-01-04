@@ -1,0 +1,71 @@
+---
+const { navItems } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur">
+  <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+    <a href="#topo" class="flex items-center gap-3 text-lg font-semibold tracking-wide text-white">
+      <img
+        src="/images/profile.jpg"
+        alt="Foto de perfil"
+        class="h-10 w-10 rounded-full border border-white/60 object-cover sm:h-12 sm:w-12"
+        loading="lazy"
+      />
+      <span data-i18n="brand.name">Luca Guiraldello</span>
+    </a>
+    <button
+      id="menu-toggle"
+      class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:border-white/30 hover:bg-white/10 md:hidden"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      type="button"
+    >
+      <span data-i18n="nav.menu">Menu</span>
+      <span class="text-base">☰</span>
+    </button>
+    <button
+      id="lang-toggle"
+      class="hidden items-center rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:border-white/30 hover:bg-white/10 sm:inline-flex"
+      type="button"
+      aria-label="Alternar idioma"
+    >
+      PT
+    </button>
+    <nav class="hidden md:block" aria-label="Navegação principal">
+      <ul class="flex items-center gap-6 text-sm font-medium text-slate-200">
+        {navItems.map((item) => (
+          <li>
+            <a class="transition hover:text-white" href={item.href} data-i18n={item.key}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+  <div id="mobile-menu" class="hidden border-t border-white/10 bg-slate-950 md:hidden">
+    <nav class="mx-auto w-full max-w-6xl px-4 py-4 sm:px-6" aria-label="Navegação mobile">
+      <ul class="flex flex-col gap-3 text-sm font-medium text-slate-200">
+        {navItems.map((item) => (
+          <li>
+            <a
+              class="block rounded-lg px-3 py-2 transition hover:bg-white/10 hover:text-white"
+              href={item.href}
+              data-i18n={item.key}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <button
+        id="lang-toggle-mobile"
+        class="mt-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:border-white/30 hover:bg-white/10"
+        type="button"
+        aria-label="Alternar idioma"
+      >
+        PT
+      </button>
+    </nav>
+  </div>
+</header>

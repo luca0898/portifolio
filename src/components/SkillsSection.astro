@@ -1,0 +1,31 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+
+const skills = [
+  { key: "skills.item1", label: "C#, .NET 8 e ASP.NET Core" },
+  { key: "skills.item2", label: "Arquitetura limpa, DDD e CQRS" },
+  { key: "skills.item3", label: "Mensageria com RabbitMQ e AWS SQS" },
+  { key: "skills.item4", label: "SQL Server, PostgreSQL e Redis" },
+  { key: "skills.item5", label: "Docker, Kubernetes (EKS) e IaC" },
+  { key: "skills.item6", label: "CI/CD com GitHub Actions e pipelines AWS" },
+];
+---
+
+<section id="habilidades" class="mt-16 scroll-mt-24 space-y-8">
+  <SectionHeader
+    kicker="Habilidades"
+    title="Stack principal"
+    kickerKey="skills.kicker"
+    titleKey="skills.title"
+  />
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {skills.map((skill) => (
+      <div
+        class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200"
+        data-i18n={skill.key}
+      >
+        {skill.label}
+      </div>
+    ))}
+  </div>
+</section>
