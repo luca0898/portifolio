@@ -496,6 +496,9 @@ const navItems = [
             download
             class="inline-flex flex-1 items-center justify-center rounded-full bg-emerald-400 px-5 py-2 text-sm font-semibold text-emerald-950 transition hover:bg-emerald-300"
             data-i18n="cv.modal.download"
+            data-cv-download="true"
+            data-cv-pt="/cv/Luca-Guiraldello-resumo-pt.pdf"
+            data-cv-en="/cv/Luca-Guiraldello-resume-us.pdf"
             data-close-modal="true"
           >
             Download resumido
@@ -527,6 +530,7 @@ const navItems = [
       const cvModalOpen = document.getElementById("cv-modal-open");
       const cvModal = document.getElementById("cv-modal");
       const cvModalClose = document.getElementById("cv-modal-close");
+      const cvDownloadLink = document.querySelector("[data-cv-download='true']");
 
       const translations = {
         pt: {
@@ -762,6 +766,15 @@ const navItems = [
           document.title = dictionary.pageTitle;
         }
         document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+        if (cvDownloadLink) {
+          const linkHref =
+            lang === "en"
+              ? cvDownloadLink.getAttribute("data-cv-en")
+              : cvDownloadLink.getAttribute("data-cv-pt");
+          if (linkHref) {
+            cvDownloadLink.setAttribute("href", linkHref);
+          }
+        }
       };
 
       const setLanguage = (lang) => {
