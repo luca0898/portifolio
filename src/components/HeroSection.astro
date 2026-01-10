@@ -61,20 +61,38 @@
 
 <style>
   .summary-card {
-    background: linear-gradient(135deg, #0f172a 0%, #0f172a 50%, rgba(2, 44, 34, 0.4) 100%);
-    background-size: 220% 220%;
-    animation: summary-gradient 28s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #0f172a 55%, rgba(2, 44, 34, 0.4) 100%);
   }
 
-  @keyframes summary-gradient {
+  .summary-card::before {
+    content: "";
+    position: absolute;
+    inset: -65%;
+    background: conic-gradient(
+      from 120deg,
+      #0f172a,
+      rgba(2, 44, 34, 0.4),
+      #0f172a,
+      rgba(2, 44, 34, 0.2),
+      #0f172a
+    );
+    opacity: 0.6;
+    animation: summary-spin 15s linear infinite;
+  }
+
+  .summary-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes summary-spin {
     0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
+      transform: rotate(0deg);
     }
     100% {
-      background-position: 0% 50%;
+      transform: rotate(360deg);
     }
   }
 </style>
