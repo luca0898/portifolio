@@ -41,7 +41,9 @@
     </div>
   </div>
   <div class="flex-1">
-    <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/40 p-6 shadow-xl">
+    <div
+      class="summary-card rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/40 p-6 shadow-xl"
+    >
       <div class="space-y-4">
         <p class="text-sm font-semibold text-emerald-300" data-i18n="summary.title">Resumo rápido</p>
         <ul class="space-y-3 text-sm text-slate-200">
@@ -56,3 +58,41 @@
     </div>
   </div>
 </section>
+
+<style>
+  .summary-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #0f172a 55%, rgba(2, 44, 34, 0.4) 100%);
+  }
+
+  .summary-card::before {
+    content: "";
+    position: absolute;
+    inset: -65%;
+    background: conic-gradient(
+      from 120deg,
+      #0f172a,
+      rgba(2, 44, 34, 0.4),
+      #0f172a,
+      rgba(2, 44, 34, 0.2),
+      #0f172a
+    );
+    opacity: 0.6;
+    animation: summary-spin 15s linear infinite;
+  }
+
+  .summary-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes summary-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
