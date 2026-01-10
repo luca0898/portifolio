@@ -2,80 +2,16 @@
 import SectionHeader from "./SectionHeader.astro";
 ---
 
-<section
-  id="sobre"
-  class="about-section relative mt-16 scroll-mt-24 space-y-6 overflow-hidden rounded-3xl border border-white/10 bg-slate-950/40 px-6 py-8 sm:px-10"
->
-  <div class="about-gradient" aria-hidden="true"></div>
-  <div class="relative space-y-6">
-    <SectionHeader
-      kicker="Sobre"
-      title="Paixão por backend confiável"
-      kickerKey="about.kicker"
-      titleKey="about.title"
-    />
-    <p class="text-base text-slate-300 sm:text-lg" data-i18n="about.description">
-      Trabalho com foco em estabilidade, performance e escalabilidade. Tenho vivência em pipelines de
-      integração contínua, code reviews e práticas de observabilidade para manter produtos saudáveis em
-      produção. Gosto de traduzir necessidades de negócio em soluções técnicas sustentáveis.
-    </p>
-  </div>
+<section id="sobre" class="mt-16 scroll-mt-24 space-y-6">
+  <SectionHeader
+    kicker="Sobre"
+    title="Paixão por backend confiável"
+    kickerKey="about.kicker"
+    titleKey="about.title"
+  />
+  <p class="text-base text-slate-300 sm:text-lg" data-i18n="about.description">
+    Trabalho com foco em estabilidade, performance e escalabilidade. Tenho vivência em pipelines de
+    integração contínua, code reviews e práticas de observabilidade para manter produtos saudáveis em
+    produção. Gosto de traduzir necessidades de negócio em soluções técnicas sustentáveis.
+  </p>
 </section>
-
-<style>
-  .about-section {
-    --gradient-x: 25%;
-    --gradient-y: 30%;
-  }
-
-  .about-gradient {
-    position: absolute;
-    inset: -40%;
-    background:
-      radial-gradient(
-        circle at var(--gradient-x) var(--gradient-y),
-        rgba(16, 185, 129, 0.35),
-        transparent 58%
-      ),
-      radial-gradient(
-        circle at calc(var(--gradient-x) + 25%) calc(var(--gradient-y) + 30%),
-        rgba(14, 165, 233, 0.25),
-        transparent 62%
-      );
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-</style>
-
-<script>
-  const aboutSection = document.getElementById("sobre");
-  if (aboutSection) {
-    let ticking = false;
-
-    const updateGradient = () => {
-      const rect = aboutSection.getBoundingClientRect();
-      const totalDistance = window.innerHeight + rect.height;
-      const progress = (window.innerHeight - rect.top) / totalDistance;
-      const clamped = Math.min(Math.max(progress, 0), 1);
-      const x = 20 + clamped * 60;
-      const y = 20 + (1 - clamped) * 50;
-      aboutSection.style.setProperty("--gradient-x", `${x}%`);
-      aboutSection.style.setProperty("--gradient-y", `${y}%`);
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          updateGradient();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    updateGradient();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-  }
-</script>
